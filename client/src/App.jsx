@@ -1,26 +1,52 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 
-function App() {
-  const [response, setResponse] = useState('');
+function MovieSearch() {
+  const [movieData, setMovieData] = useState([]);  // Store all movies
+  const [error, setError] = useState('');  // Store any error messages
 
-  useEffect(() => {
-    // Send GET request to the servlet
-    axios.get('http://localhost:8080/cat201project_war_exploded/hello-servlet')
-      .then((res) => {
-        setResponse(res.data);  // Update state with the response from the servlet
-      })
-      .catch((error) => {
-        console.error('There was an error!', error);
-      });
-  }, []);
+  const handleFetchMovies = async () => {
+    try {
+      // Make a GET request to the servlet to fetch all movies
+      const response = await axios.get('http://localhost:8080/cat201project/itemServlet');
+
+      const data = response.data;
+
+      if (data.error) {
+        setError(data.error);
+        setMovieData([]);
+      } else {
+        setMovieData(data);  // Store the fetched movie data
+        setError('');
+      }
+    } catch (err) {
+      setError('Error fetching data');
+      setMovieData([]);
+    }
+  };
 
   return (
-    <div className="App">
-      <h1>Servlet Response:</h1>
-      <p>{response}</p>
+    <div>
+      <h1>Movie Search</h1>
+
+      <button onClick={handleFetchMovies}>Fetch All Movies</button>
+
+      {error && <p>{error}</p>}  {/* Display error message if any */}
+      
+      <div>
+        {movieData.length > 0 ? (
+          movieData.map((movie, index) => (
+            <div key={index} style={{ margin: '10px', border: '1px solid #ddd', padding: '10px' }}>
+              <h3>{movie.title} ({movie.year})</h3>
+              <p>{movie.plot}</p>
+            </div>
+          ))
+        ) : (
+          <p>No movies to display</p>
+        )}
+      </div>
     </div>
   );
 }
 
-export default App;
+export default MovieSearch;
