@@ -1,4 +1,5 @@
 package com.example.servlet;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -12,16 +13,16 @@ import javax.servlet.http.HttpServletResponse;
 import com.example.data.Database;
 import com.example.data.Movie;
 
-
 @WebServlet("/itemServlet")
 public class ItemServlet extends HttpServlet {
 
     /**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+     * 
+     */
+    private static final long serialVersionUID = 1L;
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
         // Get the title parameter from the request
         Database db = Database.getInstance();
 
@@ -53,8 +54,8 @@ public class ItemServlet extends HttpServlet {
         }
     }
 
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        
     }
 }
