@@ -5,7 +5,7 @@ import { navButtons } from "../constants"
 
 const ProductCategories = () => {
   return (
-    <section id="navigation" className="max-container w-full flex flex-col">
+    <section id="#navigation" className="max-container w-full flex flex-col">
         <div className="flex flex-col">
             <div className="flex items-center justify-start gap-6">
                 <TitleBlock/>
