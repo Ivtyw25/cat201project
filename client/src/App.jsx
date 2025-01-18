@@ -2,6 +2,7 @@ import Nav from "./components/Nav"
 import { navLinks } from "./constants"
 import Hero from "./sections/Hero"
 import ProductCategories from "./sections/ProductCategories"
+import BestSelling from "./sections/BestSelling"
 
 const App = () => {
 
@@ -14,6 +15,10 @@ const App = () => {
         <section className="padding-x padding-b">
           <ProductCategories/>
         </section>
+        <section className="padding-x padding-b">
+          <BestSelling/>
+        </section>
+
     </main>
   )
 }
