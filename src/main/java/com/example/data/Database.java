@@ -60,7 +60,7 @@ public class Database {
     // Get movie by title
     public Movie getMovieByTitle(String title) {
         for (Movie movie : movies) {
-            if (movie.getTitle().equalsIgnoreCase(title)) {
+            if (movie.getTitle().equalsIgnoreISSUE(title)) {
                 return movie;
             }
         }
