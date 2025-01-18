@@ -19,7 +19,7 @@ const ProductCategories = () => {
         </div>
         <div className="mt-10 gap-10 max-sm:grid max-sm:grid-cols-2 max-w-screen-xl flex flex-wrap">
             {navButtons.map((item,index) => (
-                <NavButton key={index} route={item.route} label={item.label} colorFrom={item.colorFrom} colorTo={item.colorTo}/>
+                <NavButton key={index} route={item.route} label={item.label}/>
             ))}
         </div>
         <Line/>

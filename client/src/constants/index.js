@@ -5,36 +5,28 @@ export const navLinks = [
     { href: "#contact", label: "Contact"}
 ];
 
+export const readCardEndpoint = 'http://localhost:8080/cat201project/readCard'
+
 export const navButtons = [
     {
-        label: "Yu-Gi-Oh!",
-        route: "/beaches",
-        colorFrom: "yellow-200",
-        colorTo: "orange-200"
+        label: "Naruto",
+        route: "/naruto",
     },
     {
-        label: "Pokémon",
-        route: "/card"
-    },
-    {
-        label: "Disney Lorcana",
-        route: "/FoodAndBeverage"
+        label: "Attack on Titan",
+        route: "/aot"
     },
     {
         label: "One Piece",
-        route: "/cultureandheritage"
+        route: "/onepiece"
     },
     {
-        label: "Digimon",
-        route: "/natureandwildlife"
+        label: "Demon Slayer",
+        route: "/demonslayer"
     },
     {
-        label: "Star Wars: Unlimited",
-        route: "/accommodations"
-    },
-    {
-        label: "Dragon Ball Super",
-        route: "/transportations"
+        label: "My Hero Academia",
+        route: "/myheroacademia"
     },
 ]
 
