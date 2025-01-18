@@ -1,0 +1,60 @@
+{
+  "users": [
+    {
+      "user_id": 1,
+      "username": "admin",
+      "full_name": "ADMINISTRATOR",
+      "email": "admin@gmail.com",
+      "password": "admin123",
+      "phone": "012-3456789",
+      "address": "100 JALAN TUN RAZAK",
+      "city": "SUNGAI PETANI",
+      "state": "KEDAH",
+      "zip": "50000",
+      "country": "MALAYSIA",
+      "role": "admin"
+    },
+    {
+      "user_id": 2,
+      "username": "Ivan",
+      "full_name": "IVAN HAM",
+      "email": "ham@gmail.com",
+      "password": "12345678",
+      "phone": "012-2223344",
+      "address": "456 GREEN LANE",
+      "city": "PETALING JAYA",
+      "state": "SELANGOR",
+      "zip": "46000",
+      "country": "MALAYSIA",
+      "role": "user"
+    },
+    {
+      "user_id": 3,
+      "username": "Shuai Ge",
+      "full_name": "MERVYN CHEW",
+      "email": "chew@gmail.com",
+      "password": "12345678",
+      "phone": "019-8888775",
+      "address": "69, TAMAN SUDI AMAN",
+      "city": "SUNGAI PETANI",
+      "state": "KEDAH",
+      "zip": "08007",
+      "country": "MALAYSIA",
+      "role": "user"
+    },
+    {
+      "user_id": 4,
+      "username": "ivtyw",
+      "full_name": "IVAN",
+      "email": "Ivantham@gmail.com",
+      "password": "123456",
+      "phone": "0123148129",
+      "address": "5, JALAN DATO DAGANG",
+      "city": "KLANG",
+      "state": "SELANGOR",
+      "zip": "41200",
+      "country": "MALAYSIA",
+      "role": "user"
+    }
+  ]
+}
