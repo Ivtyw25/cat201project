@@ -102,9 +102,12 @@ function Card() {
   return (
     <div>
       <h1>Card List</h1>
-      <div style={{ marginBottom: '20px' }}>
+      <div style={{ marginBottom: "20px" }}>
         <button onClick={handleFetchCards}>Fetch All Cards</button>
-        <button onClick={() => setShowPopup(true)} style={{ marginLeft: '10px' }}>
+        <button
+          onClick={() => setShowPopup(true)}
+          style={{ marginLeft: "10px" }}
+        >
           Add New Card
         </button>
       </div>
@@ -223,40 +226,61 @@ function Card() {
       )}
       {/*End Pop-up window*/}
       {/* Display cards by category */}
-      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '20px', padding: '20px' }}>
+      <div
+        style={{
+          display: "flex",
+          flexWrap: "wrap",
+          gap: "20px",
+          padding: "20px",
+        }}
+      >
         {Object.entries(categories).map(([category, cards]) => (
-          <div key={category} style={{
-            flex: '1',
-            minWidth: '300px',
-            backgroundColor: '#f5f5f5',
-            padding: '15px',
-            borderRadius: '8px'
-          }}>
+          <div
+            key={category}
+            style={{
+              flex: "1",
+              minWidth: "300px",
+              backgroundColor: "#f5f5f5",
+              padding: "15px",
+              borderRadius: "8px",
+            }}
+          >
             <h2>{category}</h2>
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: "10px" }}>
               {cards.map((card, index) => (
-                <div key={index} style={{
-                  border: '1px solid #ddd',
-                  padding: '10px',
-                  borderRadius: '4px',
-                  backgroundColor: 'white',
-                  width: '250px'
-                }}>
+                <div
+                  key={index}
+                  style={{
+                    border: "1px solid #ddd",
+                    padding: "10px",
+                    borderRadius: "4px",
+                    backgroundColor: "white",
+                    width: "250px",
+                  }}
+                >
                   <h3>{card.name}</h3>
-                  <p><strong>Description:</strong> {card.description}</p>
-                  <p><strong>Price:</strong> ${card.price}</p>
-                  <p><strong>Stock:</strong> {card.stock}</p>
-                  <p><strong>Rarity:</strong> {card.rarity}</p>
+                  <p>
+                    <strong>Description:</strong> {card.description}
+                  </p>
+                  <p>
+                    <strong>Price:</strong> ${card.price}
+                  </p>
+                  <p>
+                    <strong>Stock:</strong> {card.stock}
+                  </p>
+                  <p>
+                    <strong>Rarity:</strong> {card.rarity}
+                  </p>
                   {card.image_url && (
-                    <img 
-                      src={card.image_url} 
-                      alt={card.name} 
-                      style={{ width: '100px', height: 'auto' }} 
+                    <img
+                      src={card.image_url}
+                      alt={card.name}
+                      style={{ width: "100px", height: "auto" }}
                     />
                   )}
-                  <button 
+                  <button
                     onClick={() => handleDeleteCard(card.card_id)}
-                    style={{ marginTop: '10px', width: '100%' }}
+                    style={{ marginTop: "10px", width: "100%" }}
                   >
                     Delete
                   </button>
@@ -267,7 +291,7 @@ function Card() {
         ))}
       </div>
     </div>
-);
+  );
 }
 
 export default Card;
