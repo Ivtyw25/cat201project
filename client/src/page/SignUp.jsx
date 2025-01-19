@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { homeLogo } from "../assets/icons";
-import { loginImage } from "../assets/images";
+import { Images } from "../assets/images";
 import InputField from "../components/InputField";
 
 const SignUp = () => {
@@ -42,13 +42,16 @@ const SignUp = () => {
     };
 
     try {
-      const response = await fetch("http://localhost:8080/cat201project/Login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(payload),
-      });
+      const response = await fetch(
+        "http://localhost:8080/cat201project/Login",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(payload),
+        }
+      );
 
       if (response.ok) {
         alert("User registered successfully!");
@@ -71,7 +74,9 @@ const SignUp = () => {
           </div>
           <div className="mt-12 flex flex-col items-center">
             <h1 className="text-2xl xl:text-3xl font-extrabold">
-              {currentPage === 1 ? "Sign Up - User Details" : "Sign Up - Address"}
+              {currentPage === 1
+                ? "Sign Up - User Details"
+                : "Sign Up - Address"}
             </h1>
             <form onSubmit={handleSubmit} className="w-full flex-1 mt-8">
               {currentPage === 1 ? (
@@ -178,7 +183,11 @@ const SignUp = () => {
         </div>
         <div className="flex-1 bg-indigo-100 text-center hidden lg:flex">
           <div className="w-full bg-contain bg-center bg-no-repeat">
-            <img className="object-fill" src={loginImage} alt="Signup Visual" />
+            <img
+              className="object-fill"
+              src={Images.hero.LoginImage}
+              alt="Signup Visual"
+            />
           </div>
         </div>
       </div>

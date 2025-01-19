@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router";
-import { HeroImage } from "../assets/images";
+import { Images } from "../assets/images";
 import Line from "../components/Line";
 const Hero = () => {
     
@@ -11,7 +11,7 @@ const Hero = () => {
         <section id="home" className="max-container">
             <div className="container flex flex-col justify-center p-6 mx-auto sm:py-12 lg:py-24 lg:flex-row lg:justify-between">
                 <div className="flex items-center justify-center p-6 mt-8 lg:ml-32 lg:mt-0 h-72 sm:h-80 lg:h-96 xl:h-112 ">
-                    <img src={HeroImage} alt="HeroImage" className="flex rotate-12 items-center justify-center p-6 mt-8 lg:mt-0 h-72 sm:h-80 lg:h-96 xl:h-[450px]"/>
+                    <img src={Images.hero.HeroImage} alt="HeroImage" className="flex rotate-12 items-center justify-center p-6 mt-8 lg:mt-0 h-72 sm:h-80 lg:h-96 xl:h-[450px]"/>
                 </div>
                 <div className="flex flex-col justify-center p-4 text-center lg:max-w-lg xl:max-w-xl lg:text-left rounded-sm">
                     <h1 className="text-3xl font-bold font-palanquin leading-none sm:text-6xl">

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { homeLogo } from "../assets/icons";
-import { loginImage } from "../assets/images";
+import { Images } from '../assets/images';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -98,7 +98,7 @@ const Login = () => {
         </div>
         <div className="flex-1 bg-indigo-100 text-center hidden lg:flex">
           <div className="w-full bg-contain bg-center bg-no-repeat">
-            <img className="object-fill" src={loginImage} alt="Login Visual" />
+            <img className="object-fill" src={Images.hero.LoginImage} alt="Login Visual" />
           </div>
         </div>
       </div>

@@ -3,6 +3,7 @@ import NavButton from "../components/NavButton"
 import TitleBlock from "../components/TitleBlock"
 import { navButtons } from "../constants"
 
+
 const ProductCategories = () => {
   return (
     <section id="#navigation" className="max-container w-full flex flex-col">

@@ -21,8 +21,8 @@ export const navButtons = [
         route: "/onepiece"
     },
     {
-        label: "Demon Slayer",
-        route: "/demonslayer"
+        label: "Pokemon",
+        route: "/pokemon"
     },
     {
         label: "My Hero Academia",
