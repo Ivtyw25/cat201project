@@ -82,6 +82,12 @@ import SakutaHarunoSe from "./sakura_haruno_se.jpg"
 import SasukeUchihaSe from "./sasuke_uchiha_se.jpg"
 import TobiramaSenjuBp from "./tobirama_senju_bp.jpg"
 import TsunadeBp from "./tsunade_bp.jpg"
+import ChimiCharista from "./chimi_charista.jpg"
+import ChimiColossalTitan from "./chimi_colossal_titan.jpg"
+import ChimiConny from "./chimi_conny.jpg"
+import ChimiHange from "./chimi_hange.jpg"
+import ChimiJean from "./chimi_jean.jpg"
+import ChimiReiner from "./chimi_reiner.jpg"
 
 // Group exports by category
 export const Images = {
@@ -121,7 +127,13 @@ export const Images = {
     Eren,
     FemaleTitan,
     Levi,
-    Mikasa
+    Mikasa,
+    ChimiCharista,
+    ChimiColossalTitan,
+    ChimiConny,
+    ChimiHange,
+    ChimiJean,
+    ChimiReiner,
   },
 
   // My Hero Academia characters
