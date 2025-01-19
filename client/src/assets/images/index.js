@@ -54,6 +54,14 @@ import TsunadeNr from "./tsunade_nr.jpg"
 import UchihcaMadaraNr from "./uchiha_madara_nr.jpg"
 import UchihaObitoBp from "./uchiha_obito_bp.jpg"
 import Yamato from "./yamato.jpg"
+import AllForOneBp from "./all_for_one_bp.png"
+import AllMightBp from "./all_might_bp.png"
+import IzukuMidoriyaBp from "./izuku_midoriya_bp.png"
+import KatsukiBakugoBp from "./katsuki_bakugo_bp.png"
+import ShigarakiBp from "./shigaraki_bp.png"
+import TodorokiBp from "./todoroki_bp.png"
+import UrakakaBp from "./urakaka_bp.png"
+import Urakaka from "./urakaka.jpg"
 
 // Group exports by category
 export const Images = {
@@ -107,7 +115,15 @@ export const Images = {
     Kirishima,
     KuokaJiro,
     Shigaraki,
-    Todoroki
+    Todoroki,
+    AllForOneBp,
+    AllMightBp,
+    IzukuMidoriyaBp, 
+    KatsukiBakugoBp, 
+    ShigarakiBp,
+    TodorokiBp,
+    UrakakaBp,
+    Urakaka
   },
 
   // One Piece characters
