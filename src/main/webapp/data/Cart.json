@@ -2,7 +2,12 @@
   "cart": [
     {
       "user_id": 1,
-      "items": []
+      "items": [
+        {
+          "card_id": 51,
+          "quantity": 1
+        }
+      ]
     },
     {
       "user_id": 2,
