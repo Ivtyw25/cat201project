@@ -72,6 +72,16 @@ import Silver from "./silver.png"
 import Tashigi from "./tashigi.jpg"
 import Vivi from "./vivi.jpg"
 import ZoroFoil from "./zoro_foil.jpg"
+import HinataHyugaSe from "./hinata_hyuga_se.jpg"
+import KanonCp from "./kushina_uzumaki_bp.jpg"
+import KushinaUzumakiBp from "./kushina_uzumaki_bp.jpg"
+import MinatoNimakazeSe from "./minato_nimakaze_se.jpg"
+import NarutoBp from "./naruto_bp.jpg"
+import NarutoUzumakiSe from "./naruto_uzumaki_se.jpg"
+import SakutaHarunoSe from "./sakura_haruno_se.jpg"
+import SasukeUchihaSe from "./sasuke_uchiha_se.jpg"
+import TobiramaSenjuBp from "./tobirama_senju_bp.jpg"
+import TsunadeBp from "./tsunade_bp.jpg"
 
 // Group exports by category
 export const Images = {
@@ -170,6 +180,17 @@ export const Images = {
     SasukeUchihaCr,
     TsunadeNr,
     UchihcaMadaraNr,
-    UchihaObitoBp
+    UchihaObitoBp, 
+    HinataHyugaSe,
+    KanonCp,
+    KushinaUzumakiBp,
+    MinatoNimakazeSe,
+    NarutoBp,
+    NarutoUzumakiSe,
+    SakutaHarunoSe,
+    SasukeUchihaSe,
+    TobiramaSenjuBp,
+    TsunadeBp,
+    
   }
 }
