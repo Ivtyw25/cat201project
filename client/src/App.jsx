@@ -3,7 +3,7 @@ import { navLinks } from "./constants"
 import Hero from "./sections/Hero"
 import ProductCategories from "./sections/ProductCategories"
 import BestSelling from "./sections/BestSelling"
-
+import Footer from "./sections/Footer"
 const App = () => {
 
   return (
@@ -17,6 +17,9 @@ const App = () => {
         </section>
         <section className="padding-x padding-b">
           <BestSelling/>
+        </section>
+        <section className="padding-t">
+          <Footer/>
         </section>
 
     </main>

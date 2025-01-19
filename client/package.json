@@ -17,7 +17,9 @@
     "react-multi-carousel": "^2.8.5",
     "react-router": "^7.1.1",
     "react-router-dom": "^7.1.1",
-    "react-slideshow-image": "^4.3.2"
+    "react-slick": "^0.30.3",
+    "react-slideshow-image": "^4.3.2",
+    "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",

@@ -1,31 +1,41 @@
-import { star } from "../assets/icons"
-// eslint-disable-next-line react/prop-types
-const ItemCard = ({title, description, rating, price, image, index, address}) => {
+const ItemCard = ({ card, image }) => {
   return (
-    <div className="p-4 sm:w-1/2 lg:w-1/3">
-      <div className="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
-        <img 
-            className="lg:h-72 max-lg:h-48 w-full object-cover object-center"
-            src={image} />
-        <div className="p-6 cursor-pointer hover:bg-indigo-700 h-full hover:text-white transition duration-300 ease-in">
-          <h2 className="text-lg text-pale-purple font-montserrat font-semibold mb-2">{index + 1}. {title}</h2>
-          <h1 className="text-base font-medium mb-3">{address}</h1>
-          <div className="flex mt-2 flex-row items-center gap-2.5">
-              <img
-                  src={star}
-                  width={16}
-                  height={16}
-                  alt='rating star'
-                  className='object-contain m-0'
-              />
-            <p className=""> {rating} </p>
+    <div
+      key={card.card_id}
+      className="w-[160px] sm:w-[200px] md:w-[240px] lg:w-[280px] 
+              bg-white rounded-xl shadow-md overflow-hidden 
+              hover:shadow-lg transition-shadow duration-300"
+    >
+      <div className="h-[220px] sm:h-[280px] md:h-[340px] lg:h-[380px] overflow-hidden">
+        <img
+          src={image}
+          alt={card.name}
+          className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+        />
+      </div>
+      <div className="p-2 sm:p-3 md:p-4 space-y-1 sm:space-y-2">
+        <h3 className="text-base sm:text-lg font-semibold truncate">
+          {card.name}
+        </h3>
+        <p className="text-gray-600 text-xs sm:text-sm line-clamp-2">
+          {card.description}
+        </p>
+        <div className="flex items-center justify-between pt-1 sm:pt-2">
+          <span className="text-lg sm:text-xl font-bold text-blue-600">
+            ${card.price}
+          </span>
+          <div className="flex flex-col items-end">
+            <span className="text-xs sm:text-sm text-gray-500">
+              Stock: {card.stock}
+            </span>
+            <span className="text-xs sm:text-sm font-medium text-blue-500">
+              {card.rarity}
+            </span>
           </div>
-          {price && <p className="mt-3 font-medium font-montserrat text-base">From <span className="text-green-600">{price}</span></p> }
-          {description && <p className="font-montserrat text-base leading-7 mt-3">{description}</p>}
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default ItemCard
+export default ItemCard;

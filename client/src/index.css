@@ -72,3 +72,54 @@
     @apply font-montserrat text-slate-gray text-base leading-7;
   }
 }
+
+/* Add these styles to your CSS file */
+.slider-container .slick-slide {
+  padding: 0 8px;
+}
+
+.slider-container .slick-track {
+  display: flex !important;
+  gap: 1rem;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.slider-container .slick-slide > div {
+  height: 100%;
+}
+
+/* Style the dots */
+.slick-dots {
+  bottom: -40px;
+}
+
+.slick-dots li button:before {
+  font-size: 12px;
+}
+
+/* Style the arrows */
+.slick-prev, .slick-next {
+  z-index: 1;
+}
+
+.slick-prev {
+  left: -25px;
+}
+
+.slick-next {
+  right: -25px;
+}
+
+/* Make sure cards are equal height */
+.slider-container .slick-track {
+  display: flex !important;
+}
+
+.slider-container .slick-slide {
+  height: inherit !important;
+}
+
+.slider-container .slick-slide > div {
+  height: 100%;
+}
