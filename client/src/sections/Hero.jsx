@@ -1,6 +1,12 @@
+import { useNavigate } from "react-router";
 import { HeroImage } from "../assets/images";
 import Line from "../components/Line";
 const Hero = () => {
+    
+    const navigate = useNavigate();
+    const handleNavigation = ({route}) => {
+        navigate(route);
+    };
     return (
         <section id="home" className="max-container">
             <div className="container flex flex-col justify-center p-6 mx-auto sm:py-12 lg:py-24 lg:flex-row lg:justify-between">
@@ -18,7 +24,8 @@ const Hero = () => {
                         Find it here!
                     </p>
                     <div className="flex flex-col space-y-4 sm:items-center sm:justify-center sm:flex-row sm:space-y-0 sm:space-x-4 lg:justify-start">
-                        <a className="px-8 py-3 text-lg font-semibold rounded bg-violet-600 text-gray-50 cursor-pointer">Get Started</a>
+                        <a className="px-8 py-3 text-lg font-semibold rounded bg-violet-600 text-gray-50 cursor-pointer"
+                            onClick={() => handleNavigation({route:"/loginpage"})}>Get Started</a>
                         <a className="px-8 py-3 text-lg font-semibold border hover-2 rounded cursor-pointer border-gray-800">Explore More</a>
                     </div>
                 </div> 

@@ -1,8 +1,13 @@
 import { hamburger } from "../assets/icons";
 import { homeLogo } from "../assets/icons";
 import { useState } from "react";
+import { cart, profile } from "../assets/icons";
 // eslint-disable-next-line react/prop-types
 const Nav = ({navLinks = [], noLinks}) => {
+  
+  const handleNavigation = ({route}) => {
+    navigate(route);
+  };
   const [isOpen, setIsOpen] = useState(false);
   return (
     <header className='py-4 padding-x z-10 w-full'>
@@ -29,12 +34,21 @@ const Nav = ({navLinks = [], noLinks}) => {
             </li>
           ))}
         </ul>
-        {
-        !noLinks && 
-          <div className='hidden max-lg:block' onClick={() => setIsOpen((prevState) => !prevState)}>
-            <img src={hamburger} alt='hamburger icon' width={25} height={25} />
-          </div> 
-        }
+        <div className="flex gap-10 items-center max-sm:gap-4">
+          <button className="hover:scale-110 transition-transform"
+                  onClick={() =>handleNavigation({route:"/cart"})} >
+            <img src={cart} alt="shopping cart" width={24} height={24} />
+          </button>
+          <button className="hover:scale-110 transition-transform"
+                  onClick={() => handleNavigation({route:"/profile"})}>
+            <img src={profile} alt="user profile" width={24} height={24} />
+          </button>
+          {!noLinks && 
+            <div className='hidden max-lg:block' onClick={() => setIsOpen((prevState) => !prevState)}>
+              <img src={hamburger} alt='hamburger icon' width={25} height={25} />
+            </div>
+          }
+        </div>
       </nav>
       {isOpen && (
         <div className="fixed inset-0 bg-white z-20 flex flex-col items-center justify-center">
