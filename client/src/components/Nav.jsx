@@ -2,13 +2,14 @@ import { hamburger } from "../assets/icons";
 import { homeLogo } from "../assets/icons";
 import { useState, useEffect } from "react";
 import { cart, profile } from "../assets/icons";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 // eslint-disable-next-line react/prop-types
 const Nav = ({ navLinks = [], noLinks }) => {
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const [showWallet, setShowWallet] = useState(false);
   const [walletBalance, setWalletBalance] = useState(0);
+  const [user, setUser] = useState(null);
 
   // Add an interval to check for wallet updates
   useEffect(() => {
@@ -21,6 +22,7 @@ const Nav = ({ navLinks = [], noLinks }) => {
         console.log("Nav - Parsed user data:", user);
         console.log("Nav - Wallet value:", user.wallet);
         setWalletBalance(user.wallet || 0);
+        setUser(user);
       }
     };
 

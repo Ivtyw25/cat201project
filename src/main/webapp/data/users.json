@@ -13,7 +13,7 @@
       "zip": "50000",
       "country": "MALAYSIA",
       "role": "admin",
-      "wallet": 1000.00
+      "wallet": 1000.0
     },
     {
       "user_id": 2,
@@ -28,7 +28,7 @@
       "zip": "46000",
       "country": "MALAYSIA",
       "role": "user",
-      "wallet": 500.00
+      "wallet": 318.59999999999997
     },
     {
       "user_id": 3,
@@ -43,7 +43,7 @@
       "zip": "08007",
       "country": "MALAYSIA",
       "role": "user",
-      "wallet": 600.00
+      "wallet": 412.12
     },
     {
       "user_id": 4,
@@ -58,7 +58,37 @@
       "zip": "41200",
       "country": "MALAYSIA",
       "role": "user",
-      "wallet": 700.00
+      "wallet": 700.0
+    },
+    {
+      "user_id": 5,
+      "username": "Ket",
+      "full_name": "CHANG JUN KIT",
+      "email": "ket6@gmail.com",
+      "password": "12345678",
+      "phone": "017-4443355",
+      "address": "13, TAMAN BUNGA",
+      "city": "TAIPING",
+      "state": "PERAK",
+      "zip": "11700",
+      "country": "MALAYSIA",
+      "role": "user",
+      "wallet": 800.0
+    },
+    {
+      "user_id": 6,
+      "username": "D Cup",
+      "full_name": "MERVYN CHEW YEW ZHANG",
+      "email": "mervynchew0095@gmail.com",
+      "password": "12345678",
+      "phone": "634884",
+      "address": "13, TAMAN MUTIARA OFF, JALAN SEKERAT, 08000 SUNGAI PETANI, KEDAH",
+      "city": "SUNGAI PETANI",
+      "state": "KEDAH",
+      "zip": "08000",
+      "country": "MALAYSIA",
+      "role": "user",
+      "wallet": 0.0
     }
   ]
 }

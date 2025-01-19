@@ -3,12 +3,15 @@ import axios from "axios";
 import Nav from "./components/Nav";
 import SideNav from "./components/SideNav";
 import { readCardEndpoint } from "./constants";
+import { useNavigate } from "react-router-dom";
 
 // eslint-disable-next-line react/prop-types
 const CardCategory = ({ category }) => {
   const [cards, setCards] = useState([]);
   const [selectedCard, setSelectedCard] = useState(null);
   const [showModal, setShowModal] = useState(false);
+  const [quantity, setQuantity] = useState(1);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchCards = async () => {
@@ -29,7 +32,61 @@ const CardCategory = ({ category }) => {
 
   const handleCardClick = (card) => {
     setSelectedCard(card);
+    setQuantity(1);
     setShowModal(true);
+  };
+
+  const handleAddToCart = async (cardId) => {
+    const userStr = localStorage.getItem("user");
+    if (!userStr) {
+      alert("Please log in to add items to cart");
+      navigate("/login");
+      return;
+    }
+
+    const user = JSON.parse(userStr);
+    const userId = user.user_id; // Get the user_id from stored data
+
+    if (!userId) {
+      alert("User ID not found. Please log in again.");
+      navigate("/login");
+      return;
+    }
+
+    console.log("Adding to cart for user:", userId);
+
+    try {
+      const response = await fetch("http://localhost:8080/cat201project/Cart", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: `action=addToCart&userId=${user.user_id}&cardId=${cardId}&quantity=${quantity}`,
+      });
+
+      const data = await response.json();
+      if (data.success) {
+        alert("Added to cart successfully!");
+        setShowModal(false);
+      } else {
+        alert("Failed to add to cart");
+      }
+    } catch (error) {
+      console.error("Error adding to cart:", error);
+      alert("Error adding to cart");
+    }
+  };
+
+  const getQuantityOptions = (stock) => {
+    const options = [];
+    for (let i = 1; i <= Math.min(stock, 10); i++) {
+      options.push(
+        <option key={i} value={i}>
+          {i}
+        </option>
+      );
+    }
+    return options;
   };
 
   return (
@@ -153,9 +210,39 @@ const CardCategory = ({ category }) => {
                     </div>
                   </div>
 
-                  <div className="pt-4">
-                    <button className="w-full bg-blue-600 text-white py-3 px-4 rounded-lg hover:bg-blue-700 transition-colors">
-                      Add to Cart
+                  <div className="pt-4 space-y-4">
+                    <div className="flex items-center space-x-4">
+                      <label htmlFor="quantity" className="text-gray-700">
+                        Quantity:
+                      </label>
+                      <select
+                        id="quantity"
+                        value={quantity}
+                        onChange={(e) => setQuantity(Number(e.target.value))}
+                        className="border rounded-md px-2 py-1"
+                      >
+                        {getQuantityOptions(selectedCard.stock)}
+                      </select>
+                      <span className="text-sm text-gray-500">
+                        {selectedCard.stock} available
+                      </span>
+                    </div>
+
+                    <div className="text-lg font-semibold text-gray-900">
+                      Total: ${(selectedCard.price * quantity).toFixed(2)}
+                    </div>
+
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleAddToCart(selectedCard.card_id);
+                      }}
+                      className="w-full bg-blue-600 text-white py-3 px-4 rounded-lg hover:bg-blue-700 transition-colors"
+                      disabled={selectedCard.stock === 0}
+                    >
+                      {selectedCard.stock === 0
+                        ? "Out of Stock"
+                        : "Add to Cart"}
                     </button>
                   </div>
                 </div>
