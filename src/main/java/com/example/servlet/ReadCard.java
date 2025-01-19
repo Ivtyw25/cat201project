@@ -33,7 +33,7 @@ public class ReadCard extends HttpServlet {
         PrintWriter out = response.getWriter();
 
         // Load cards from the JSON file using absolute path
-        String absolutePath = "C:/Users/USER/Documents/Y2_S1/CAT 201/cat201project/src/main/webapp/data/Card.json";
+        String absolutePath = "C:/Users/cat201project/src/main/webapp/data/Card.json";
         try (InputStream inputStream = new FileInputStream(absolutePath)) {
             if (inputStream == null) {
                 // Handle the case where the file is not found
@@ -96,7 +96,7 @@ public class ReadCard extends HttpServlet {
             JsonNode cardData = mapper.readTree(jsonInput.toString());
             
             // Read existing cards
-            String absolutePath = "C:/Users/USER/Documents/Y2_S1/CAT 201/cat201project/src/main/webapp/data/Card.json";
+            String absolutePath = "C:/Users/cat201project/src/main/webapp/data/Card.json";
             File jsonFile = new File(absolutePath);
             List<JsonLoader.Card> cards = JsonLoader.loadCardsFromJson(new FileInputStream(jsonFile));
             
