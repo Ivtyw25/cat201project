@@ -35,11 +35,22 @@ const SignUp = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const payload = {
-      ...userDetails,
-      ...addressDetails,
-      role: "user", // Default role
-    };
+    const formData = new URLSearchParams();
+    // Add the action parameter
+    formData.append("action", "signup");
+
+    // Add all user details
+    Object.entries(userDetails).forEach(([key, value]) => {
+      formData.append(key, value);
+    });
+
+    // Add all address details
+    Object.entries(addressDetails).forEach(([key, value]) => {
+      formData.append(key, value);
+    });
+
+    // Add role
+    formData.append("role", "user");
 
     try {
       const response = await fetch(
@@ -47,21 +58,27 @@ const SignUp = () => {
         {
           method: "POST",
           headers: {
-            "Content-Type": "application/json",
+            "Content-Type": "application/x-www-form-urlencoded",
           },
-          body: JSON.stringify(payload),
+          body: formData.toString(),
         }
       );
 
       if (response.ok) {
-        alert("User registered successfully!");
-        navigate("/"); // Redirect to the home page
+        const data = await response.json();
+        if (data.success) {
+          alert("User registered successfully!");
+          navigate("/loginpage"); // Redirect to the home page
+        } else {
+          throw new Error(data.message || "Failed to register user");
+        }
       } else {
-        throw new Error("Failed to register user");
+        const errorData = await response.json();
+        throw new Error(errorData.message || "Failed to register user");
       }
     } catch (error) {
       console.error("Error:", error);
-      alert("Signup failed. Please try again.");
+      alert(error.message || "Signup failed. Please try again.");
     }
   };
 
@@ -128,7 +145,7 @@ const SignUp = () => {
               ) : (
                 <div className="mx-auto max-w-xs">
                   <InputField
-                    placeholder="Address"
+                    placeholder="Street"
                     name="address"
                     value={addressDetails.address}
                     onChange={(e) => handleInputChange(e, true)}

@@ -3,12 +3,16 @@ import App from "./App";
 import CardCategory from "./CardCategory";
 import Login from "./page/Login";
 import SignUp from "./page/SignUp";
+import Cart from "./Cart";
+import Payment from "./Payment"; // Add this import
 
 
 export const router = createBrowserRouter([
     {path: "/", element: <App/>},
     {path: "/loginpage", element: <Login/>},
     {path: "/signuppage", element: <SignUp/>},
+    {path: "/cart", element: <Cart/>},
+    {path: "/payment", element: <Payment/>},
     {path: "/naruto", element: <CardCategory category="Naruto"/>},
     {path: "/aot", element: <CardCategory category="Attack on Titan"/>},
     {path: "/onepiece", element: <CardCategory category="One Piece"/>},

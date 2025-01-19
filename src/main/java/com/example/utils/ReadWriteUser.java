@@ -9,6 +9,8 @@ import com.google.gson.JsonElement;
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.JsonArray;
 
+import com.google.gson.*;
+import com.google.gson.reflect.TypeToken;
 import java.io.*;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -51,7 +53,14 @@ public class ReadWriteUser {
 
                 System.out.println("Users loaded successfully. Total users: " + usersList.size());
                 for (Map<String, Object> user : usersList) {
-                    System.out.println("Loaded user: " + user.get("email") + ", role: " + user.get("role"));
+                    // Initialize wallet if not present
+                    if (user.get("wallet") == null) {
+                        user.put("wallet", 0.00);
+                        System.out.println("Initialized wallet for user: " + user.get("email"));
+                    }
+                    System.out.println("Loaded user: " + user.get("email") + 
+                                     ", role: " + user.get("role") + 
+                                     ", wallet: " + user.get("wallet"));
                 }
             }
 
@@ -87,6 +96,9 @@ public class ReadWriteUser {
                     userObj.addProperty("zip", (String) user.get("zip"));
                     userObj.addProperty("country", (String) user.get("country"));
                     userObj.addProperty("role", (String) user.get("role"));
+                    userObj.addProperty("wallet", user.get("wallet") != null ? 
+                        ((Number) user.get("wallet")).doubleValue() : 0.00);
+
                     usersArray.add(userObj);
                 }
 
@@ -98,7 +110,8 @@ public class ReadWriteUser {
                 return true;
             }
         } catch (Exception e) {
-            e.printStackTrace(); // Temporarily add this for debugging
+            System.out.println("Error saving users: " + e.getMessage());
+            e.printStackTrace();
             return false;
         }
     }
@@ -118,6 +131,13 @@ public class ReadWriteUser {
                 System.out.println("Email matched!");
                 if (user.get("password").toString().equals(password)) {
                     System.out.println("Password matched! Login successful");
+                    
+                    // Ensure wallet exists
+                    if (user.get("wallet") == null) {
+                        user.put("wallet", 500.00);
+                        saveUsers();
+                    }
+                    
                     return user;
                 } else {
                     System.out.println("Password did not match");
@@ -137,7 +157,10 @@ public class ReadWriteUser {
     }
 
     public static void addUser(Map<String, Object> newUser) {
+        System.out.println("Starting addUser process..."); // Debug log
+
         if (isEmailExists((String) newUser.get("email"))) {
+            System.out.println("Email already exists: " + newUser.get("email")); // Debug log
             throw new IllegalArgumentException("Email already exists");
         }
 
@@ -145,6 +168,8 @@ public class ReadWriteUser {
                 .mapToInt(user -> ((Number) user.get("user_id")).intValue())
                 .max()
                 .orElse(0) + 1;
+
+        System.out.println("Generated next user_id: " + nextId); // Debug log
 
         Map<String, Object> orderedUser = new LinkedHashMap<>();
         orderedUser.put("user_id", nextId);
@@ -159,7 +184,19 @@ public class ReadWriteUser {
         orderedUser.put("zip", newUser.get("zip"));
         orderedUser.put("country", capitalizeString((String) newUser.get("country")));
         orderedUser.put("role", "user");
+        orderedUser.put("wallet", 0.00);
+
+        System.out.println("Adding user to list with wallet: " + orderedUser.get("wallet")); // Debug log
         usersList.add(orderedUser);
+        System.out.println("Current usersList size: " + usersList.size()); // Debug log
+        
+        // Save the updated users list to file
+        boolean saved = saveUsers();
+        if (saved) {
+            System.out.println("User saved successfully with wallet balance: " + orderedUser.get("wallet"));
+        } else {
+            System.out.println("Error saving user!");
+        }
     }
 
     private static boolean isEmailExists(String email) {
