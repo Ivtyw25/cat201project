@@ -13,13 +13,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.example.data.JsonLoader;  // Correct the import to JsonLoader class
-import com.example.data.JsonLoader.Card;  // Ensure the correct path to Card class
+import com.example.data.JsonLoader; // Correct the import to JsonLoader class
+import com.example.data.JsonLoader.Card; // Ensure the correct path to Card class
 import java.io.BufferedReader;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
-
 
 @WebServlet("/readCard")
 public class ReadCard extends HttpServlet {
@@ -27,13 +25,14 @@ public class ReadCard extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
         // Set the response content type to JSON
         response.setContentType("application/json");
         PrintWriter out = response.getWriter();
 
         // Load cards from the JSON file using absolute path
-        String absolutePath = "C:/Users/cat201project/src/main/webapp/data/Card.json";
+        String absolutePath = "C:\\Users\\junki\\cat201project\\src\\main\\webapp\\data\\Card.json";
         try (InputStream inputStream = new FileInputStream(absolutePath)) {
             if (inputStream == null) {
                 // Handle the case where the file is not found
@@ -58,7 +57,7 @@ public class ReadCard extends HttpServlet {
                     out.print("\"stock\": " + card.getStock() + ", ");
                     out.print("\"rarity\": \"" + card.getRarity() + "\", ");
                     out.print("\"image_url\": \"" + card.getImageUrl() + "\", ");
-                    out.print("\"category\": \"" + card.getCategory() + "\"");  // Added category
+                    out.print("\"category\": \"" + card.getCategory() + "\""); // Added category
                     out.print("}");
                     if (i < cards.size() - 1) {
                         out.print(", ");
@@ -76,12 +75,12 @@ public class ReadCard extends HttpServlet {
     }
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) 
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         response.setHeader("Access-Control-Allow-Origin", "*");
         PrintWriter out = response.getWriter();
-        
+
         try {
             // Read the JSON input from request body
             BufferedReader reader = request.getReader();
@@ -90,43 +89,42 @@ public class ReadCard extends HttpServlet {
             while ((line = reader.readLine()) != null) {
                 jsonInput.append(line);
             }
-            
+
             // Parse the input JSON
             ObjectMapper mapper = new ObjectMapper();
             JsonNode cardData = mapper.readTree(jsonInput.toString());
-            
+
             // Read existing cards
-            String absolutePath = "C:/Users/cat201project/src/main/webapp/data/Card.json";
+            String absolutePath = "C:\\Users\\junki\\cat201project\\src\\main\\webapp\\data\\Card.json";
             File jsonFile = new File(absolutePath);
             List<JsonLoader.Card> cards = JsonLoader.loadCardsFromJson(new FileInputStream(jsonFile));
-            
+
             // Generate new card ID (max existing ID + 1)
             int newCardId = cards.stream()
-                               .mapToInt(JsonLoader.Card::getCardId)
-                               .max()
-                               .orElse(0) + 1;
-            
+                    .mapToInt(JsonLoader.Card::getCardId)
+                    .max()
+                    .orElse(0) + 1;
+
             // Create new card
             JsonLoader.Card newCard = new JsonLoader.Card(
-                newCardId,
-                cardData.get("name").asText(),
-                cardData.get("description").asText(),
-                cardData.get("price").asDouble(),
-                cardData.get("stock").asInt(),
-                cardData.get("rarity").asText(),
-                cardData.get("image_url").asText(),
-                cardData.get("category").asText()
-            );
-            
+                    newCardId,
+                    cardData.get("name").asText(),
+                    cardData.get("description").asText(),
+                    cardData.get("price").asDouble(),
+                    cardData.get("stock").asInt(),
+                    cardData.get("rarity").asText(),
+                    cardData.get("image_url").asText(),
+                    cardData.get("category").asText());
+
             // Add new card to list
             cards.add(newCard);
-            
+
             // Save updated list
             JsonLoader.saveCardsToJson(cards, absolutePath);
-            
+
             response.setStatus(HttpServletResponse.SC_OK);
             out.println("{\"message\": \"Card added successfully\", \"id\": " + newCardId + "}");
-            
+
         } catch (Exception e) {
             e.printStackTrace();
             response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
@@ -136,17 +134,17 @@ public class ReadCard extends HttpServlet {
 
     // Add this new method to handle DELETE requests
     @Override
-    protected void doDelete(HttpServletRequest request, HttpServletResponse response) 
+    protected void doDelete(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         response.setHeader("Access-Control-Allow-Origin", "*");
         PrintWriter out = response.getWriter();
-        
+
         try {
             // Get the card ID from the request parameters
             int cardId = Integer.parseInt(request.getParameter("id"));
             System.out.println("Attempting to delete card with ID: " + cardId); // Debug log
-            
+
             // Read the existing JSON file
             String absolutePath = "C:/Users/USER/Documents/Y2_S1/CAT 201/cat201project/src/main/webapp/data/Card.json";
             File jsonFile = new File(absolutePath);
@@ -157,15 +155,15 @@ public class ReadCard extends HttpServlet {
                 out.println("{\"error\": \"JSON file not found\"}");
                 return;
             }
-            
+
             // Read the current cards
             List<JsonLoader.Card> cards = JsonLoader.loadCardsFromJson(new FileInputStream(jsonFile));
             System.out.println("Loaded " + cards.size() + " cards"); // Debug log
-            
+
             // Find and remove the card with matching ID
             boolean cardFound = cards.removeIf(card -> card.getCardId() == cardId);
             System.out.println("Card found and removed: " + cardFound); // Debug log
-            
+
             if (cardFound) {
                 // Write the updated list back to the JSON file
                 // You'll need to implement this method in JsonLoader
@@ -176,7 +174,7 @@ public class ReadCard extends HttpServlet {
                 response.setStatus(HttpServletResponse.SC_NOT_FOUND);
                 out.println("{\"error\": \"Card not found\"}");
             }
-            
+
         } catch (Exception e) {
             e.printStackTrace();
             response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
@@ -186,7 +184,7 @@ public class ReadCard extends HttpServlet {
 
     // Add this method to handle CORS preflight requests
     @Override
-    protected void doOptions(HttpServletRequest request, HttpServletResponse response) 
+    protected void doOptions(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setHeader("Access-Control-Allow-Origin", "*");
         response.setHeader("Access-Control-Allow-Methods", "GET, DELETE, POST");

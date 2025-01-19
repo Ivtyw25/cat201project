@@ -1,12 +1,12 @@
 {
   "cards": [
     {
-      "category": "Naruto",
+      "category": "Pokemon",
       "items": [
-        {
+          {
           "card_id": 1,
-          "name": "Shadow Clone Jutsu",
-          "description": "A technique that creates identical copies of the user.",
+          "name": "Applin",
+          "description": "A small, round, green apple-like Pokémon.",
           "price": 15.99,
           "stock": 8,
           "rarity": "Rare",
@@ -14,8 +14,8 @@
         },
         {
           "card_id": 2,
-          "name": "Rasengan",
-          "description": "A powerful ball of spinning chakra.",
+          "name": "Hydrapple",
+          "description": "A Pokémon that resembles a green apple with a leaf on its head.",
           "price": 20.49,
           "stock": 5,
           "rarity": "Epic",
@@ -23,8 +23,8 @@
         },
         {
           "card_id": 3,
-          "name": "Chidori",
-          "description": "A lightning-charged thrust attack.",
+          "name": "Leafeon",
+          "description": "A Pokémon that looks like a fox covered in leaves.",
           "price": 18.99,
           "stock": 6,
           "rarity": "Rare",
@@ -32,8 +32,8 @@
         },
         {
           "card_id": 4,
-          "name": "Sharingan",
-          "description": "A unique ocular ability of the Uchiha Clan.",
+          "name": "Pyroar",
+          "description": "A Pokémon that resembles a lion with a fiery mane.",
           "price": 30.99,
           "stock": 2,
           "rarity": "Legendary",
@@ -41,8 +41,98 @@
         },
         {
           "card_id": 5,
-          "name": "Akatsuki Cloak",
-          "description": "The iconic cloak worn by the Akatsuki members.",
+          "name": "Flareon",
+          "description": "A Pokémon that looks like a fox with a fiery tail.",
+          "price": 10.99,
+          "stock": 10,
+          "rarity": "Uncommon",
+          "image_url": "url5"
+        },
+        {
+          "card_id": 6,
+          "name": "Litleo",
+          "description": "A Pokémon that resembles a lion cub.",
+          "price": 15.99,
+          "stock": 8,
+          "rarity": "Rare",
+          "image_url": "url1"
+        },
+        {
+          "card_id": 7,
+          "name": "Slowking",
+          "description": "A Pokémon that resembles a pink, bipedal hippopotamus.",
+          "price": 20.49,
+          "stock": 5,
+          "rarity": "Epic",
+          "image_url": "url2"
+        },
+        {
+          "card_id": 8,
+          "name": "Goldeen",
+          "description": "A Pokémon that resembles a golden fish.",
+          "price": 18.99,
+          "stock": 6,
+          "rarity": "Rare",
+          "image_url": "url3"
+        },
+        {
+          "card_id": 9,
+          "name": "Suicune",
+          "description": "A Pokémon that resembles a blue, quadrupedal, mammalian creature.",
+          "price": 30.99,
+          "stock": 2,
+          "rarity": "Legendary",
+          "image_url": "url4"
+        },
+        {
+          "card_id": 10,
+          "name": "Claceon",
+          "description": "A Pokémon that resembles a cat with a large, curled tail.",
+          "price": 10.99,
+          "stock": 10,
+          "rarity": "Uncommon",
+          "image_url": "url5"
+        },
+        {
+          "card_id": 11,
+          "name": "Pikachu",
+          "description": "A Pokémon that resembles a yellow mouse with long ears and tail.",
+          "price": 15.99,
+          "stock": 8,
+          "rarity": "Rare",
+          "image_url": "url1"
+        },
+        {
+          "card_id": 12,
+          "name": "Jolteon",
+          "description": "A Pokémon that resembles a yellow fox with a spiky, yellow mane.",
+          "price": 20.49,
+          "stock": 5,
+          "rarity": "Epic",
+          "image_url": "url2"
+        },
+        {
+          "card_id": 13,
+          "name": "Iron Hands",
+          "description": "A Pokémon that resembles a yellow, bipedal, mammalian creature.",
+          "price": 18.99,
+          "stock": 6,
+          "rarity": "Rare",
+          "image_url": "url3"
+        },
+        {
+          "card_id": 14,
+          "name": "Iron Thorns",
+          "description": "A Pokémon that resembles a yellow, bipedal, mammalian creature.",
+          "price": 30.99,
+          "stock": 2,
+          "rarity": "Legendary",
+          "image_url": "url4"
+        },
+        {
+          "card_id": 15,
+          "name": "Espeon",
+          "description": "A Pokémon that resembles a yellow, bipedal, mammalian creature.",
           "price": 10.99,
           "stock": 10,
           "rarity": "Uncommon",
@@ -54,45 +144,90 @@
       "category": "Attack on Titan",
       "items": [
         {
-          "card_id": 6,
-          "name": "ODM Gear",
-          "description": "Equipment used for mobility during titan combat.",
+          "card_id": 16,
+          "name": "Mikasa",
+          "description": "A character from the anime series Attack on Titan.",
           "price": 25.99,
           "stock": 4,
           "rarity": "Epic",
           "image_url": "url6"
         },
         {
-          "card_id": 7,
-          "name": "Colossal Titan",
-          "description": "A giant titan known for its immense size.",
+          "card_id": 17,
+          "name": "Eren",
+          "description": "A character from the anime series Attack on Titan.",
           "price": 50.99,
           "stock": 1,
           "rarity": "Legendary",
           "image_url": "url7"
         },
         {
-          "card_id": 8,
-          "name": "Survey Corps Cape",
-          "description": "The signature cape of the Survey Corps.",
+          "card_id": 18,
+          "name": "Armin",
+          "description": "A character from the anime series Attack on Titan.",
           "price": 12.49,
           "stock": 8,
           "rarity": "Common",
           "image_url": "url8"
         },
         {
-          "card_id": 9,
-          "name": "Levi's Blade",
-          "description": "The blade used by Captain Levi during battles.",
+          "card_id": 19,
+          "name": "Armored Titan",
+          "description": "A character from the anime series Attack on Titan.",
           "price": 18.99,
           "stock": 5,
           "rarity": "Rare",
           "image_url": "url9"
         },
         {
-          "card_id": 10,
-          "name": "Founding Titan Power",
-          "description": "The ability to control other titans.",
+          "card_id": 20,
+          "name": "Levi",
+          "description": "A character from the anime series Attack on Titan.",
+          "price": 40.99,
+          "stock": 1,
+          "rarity": "Legendary",
+          "image_url": "url10"
+        },
+        {
+          "card_id": 21,
+          "name": "Charista",
+          "description": "A character from the anime series Attack on Titan.",
+          "price": 25.99,
+          "stock": 4,
+          "rarity": "Epic",
+          "image_url": "url6"
+        },
+        {
+          "card_id": 22,
+          "name": "Female Titan",
+          "description": "A character from the anime series Attack on Titan.",
+          "price": 50.99,
+          "stock": 1,
+          "rarity": "Legendary",
+          "image_url": "url7"
+        },
+        {
+          "card_id": 23,
+          "name": "Chimi Eren",
+          "description": "A character from the anime series Attack on Titan.",
+          "price": 12.49,
+          "stock": 8,
+          "rarity": "Common",
+          "image_url": "url8"
+        },
+        {
+          "card_id": 24,
+          "name": "Chimi Annie",
+          "description": "A character from the anime series Attack on Titan.",
+          "price": 18.99,
+          "stock": 5,
+          "rarity": "Rare",
+          "image_url": "url9"
+        },
+        {
+          "card_id": 25,
+          "name": "Chimi Mikasa",
+          "description": "A character from the anime series Attack on Titan.",
           "price": 40.99,
           "stock": 1,
           "rarity": "Legendary",
@@ -101,154 +236,280 @@
       ]
     },
     {
-      "category": "One Piece",
-      "items": [
-        {
-          "card_id": 11,
-          "name": "Gomu Gomu no Mi",
-          "description": "The Devil Fruit that grants rubber powers.",
-          "price": 22.99,
-          "stock": 3,
-          "rarity": "Epic",
-          "image_url": "url11"
-        },
-        {
-          "card_id": 12,
-          "name": "Straw Hat",
-          "description": "The iconic straw hat worn by Luffy.",
-          "price": 10.49,
-          "stock": 12,
-          "rarity": "Common",
-          "image_url": "url12"
-        },
-        {
-          "card_id": 13,
-          "name": "Zoro's Sword",
-          "description": "A blade wielded by the swordsman Roronoa Zoro.",
-          "price": 30.99,
-          "stock": 4,
-          "rarity": "Rare",
-          "image_url": "url13"
-        },
-        {
-          "card_id": 14,
-          "name": "Devil Fruit Encyclopedia",
-          "description": "A book that describes the Devil Fruits.",
-          "price": 45.99,
-          "stock": 2,
-          "rarity": "Legendary",
-          "image_url": "url14"
-        },
-        {
-          "card_id": 15,
-          "name": "Merry Go",
-          "description": "The Straw Hat Pirates' first ship.",
-          "price": 35.99,
-          "stock": 1,
-          "rarity": "Epic",
-          "image_url": "url15"
-        }
-      ]
-    },
-    {
-      "category": "Demon Slayer",
-      "items": [
-        {
-          "card_id": 16,
-          "name": "Tanjiro's Sword",
-          "description": "The Nichirin Blade wielded by Tanjiro.",
-          "price": 25.99,
-          "stock": 5,
-          "rarity": "Rare",
-          "image_url": "url16"
-        },
-        {
-          "card_id": 17,
-          "name": "Nezuko's Box",
-          "description": "The box used to carry Nezuko.",
-          "price": 18.49,
-          "stock": 7,
-          "rarity": "Uncommon",
-          "image_url": "url17"
-        },
-        {
-          "card_id": 18,
-          "name": "Water Breathing Technique",
-          "description": "A swordsmanship style used by Tanjiro.",
-          "price": 30.99,
-          "stock": 3,
-          "rarity": "Epic",
-          "image_url": "url18"
-        },
-        {
-          "card_id": 19,
-          "name": "Hashira Pin",
-          "description": "A pin representing the elite Demon Slayer Corps.",
-          "price": 12.99,
-          "stock": 10,
-          "rarity": "Common",
-          "image_url": "url19"
-        },
-        {
-          "card_id": 20,
-          "name": "Mugen Train",
-          "description": "The train involved in the Mugen Train arc.",
-          "price": 40.99,
-          "stock": 2,
-          "rarity": "Legendary",
-          "image_url": "url20"
-        }
-      ]
-    },
-    {
-      "category": "My Hero Academia",
-      "items": [
-        {
-          "card_id": 21,
-          "name": "One For All",
-          "description": "The powerful Quirk passed down to Midoriya.",
-          "price": 50.99,
-          "stock": 1,
-          "rarity": "Legendary",
-          "image_url": "url21"
-        },
-        {
-          "card_id": 22,
-          "name": "Deku's Costume",
-          "description": "The hero costume worn by Midoriya.",
-          "price": 15.99,
-          "stock": 6,
-          "rarity": "Uncommon",
-          "image_url": "url22"
-        },
-        {
-          "card_id": 23,
-          "name": "Bakugo's Gauntlets",
-          "description": "The explosive gauntlets used by Bakugo.",
-          "price": 28.99,
-          "stock": 4,
-          "rarity": "Rare",
-          "image_url": "url23"
-        },
-        {
-          "card_id": 24,
-          "name": "All Might's Hair Strand",
-          "description": "A keepsake of All Might's hair.",
-          "price": 5.99,
-          "stock": 15,
-          "rarity": "Common",
-          "image_url": "url24"
-        },
-        {
-          "card_id": 25,
-          "name": "U.A. Badge",
-          "description": "The badge of students from U.A. High School.",
-          "price": 12.99,
-          "stock": 8,
-          "rarity": "Common",
-          "image_url": "url25"
-        }
-      ]
-    }
-  ]
+    "category": "Naruto",
+    "items": [
+      {
+        "card_id": 26,
+        "name": "Naruto Uzumaki CR",
+        "description": "A character from the anime series Naruto.",
+        "price": 25.99,
+        "stock": 4,
+        "rarity": "Epic",
+        "image_url": "url6"
+      },
+      {
+        "card_id": 27,
+        "name": "Haruno Sakura CR",
+        "description": "A character from the anime series Naruto.",
+        "price": 50.99,
+        "stock": 1,
+        "rarity": "Legendary",
+        "image_url": "url7"
+      },
+      {
+        "card_id": 28,
+        "name": "Sasuke Uchiha CR",
+        "description": "A character from the anime series Naruto.",
+        "price": 12.49,
+        "stock": 8,
+        "rarity": "Common",
+        "image_url": "url8"
+      },
+      {
+        "card_id": 29,
+        "name": "Uchiha Madara NR",
+        "description": "A character from the anime series Naruto.",
+        "price": 18.99,
+        "stock": 5,
+        "rarity": "Rare",
+        "image_url": "url9"
+      },
+      {
+        "card_id": 30,
+        "name": "Naruto NR",
+        "description": "A character from the anime series Naruto.",
+        "price": 40.99,
+        "stock": 1,
+        "rarity": "Legendary",
+        "image_url": "url10"
+      },
+      {
+        "card_id": 31,
+        "name": "Kushina Uzumaki NR",
+        "description": "A character from the anime series Naruto.",
+        "price": 25.99,
+        "stock": 4,
+        "rarity": "Epic",
+        "image_url": "url6"
+      },
+      {
+        "card_id": 32,
+        "name": "Jiraiya NR",
+        "description": "A character from the anime series Naruto.",
+        "price": 50.99,
+        "stock": 1,
+        "rarity": "Legendary",
+        "image_url": "url7"
+      },
+      {
+        "card_id": 33,
+        "name": "Tsunade NR",
+        "description": "A character from the anime series Naruto.",
+        "price": 12.49,
+        "stock": 8,
+        "rarity": "Common",
+        "image_url": "url8"
+      },
+      {
+        "card_id": 34,
+        "name": "Hinata Hyuga NR",
+        "description": "A character from the anime series Naruto.",
+        "price": 18.99,
+        "stock": 5,
+        "rarity": "Rare",
+        "image_url": "url9"
+      },
+      {
+        "card_id": 35,
+        "name": "Uchiha Obito BP",
+        "description": "A character from the anime series Naruto.",
+        "price": 40.99,
+        "stock": 1,
+        "rarity": "Legendary",
+        "image_url": "url10"
+      }
+    ]
+  },
+  {
+    "category": "One Piece",
+    "items": [
+      {
+        "card_id": 36,
+        "name": "Monkey D. Luffy",
+        "description": "A character from the anime series One Piece.",
+        "price": 25.99,
+        "stock": 4,
+        "rarity": "Epic",
+        "image_url": "url6"
+      },
+      {
+        "card_id": 37,
+        "name": "Rebecca",
+        "description": "A character from the anime series One Piece.",
+        "price": 50.99,
+        "stock": 1,
+        "rarity": "Legendary",
+        "image_url": "url7"
+      },
+      {
+        "card_id": 38,
+        "name": "Roronoa Zoro",
+        "description": "A character from the anime series One Piece.",
+        "price": 12.49,
+        "stock": 8,
+        "rarity": "Common",
+        "image_url": "url8"
+      },
+      {
+        "card_id": 39,
+        "name": "Perona",
+        "description": "A character from the anime series One Piece.",
+        "price": 18.99,
+        "stock": 5,
+        "rarity": "Rare",
+        "image_url": "url9"
+      },
+      {
+        "card_id": 40,
+        "name": "Tony Chopper",
+        "description": "A character from the anime series One Piece.",
+        "price": 40.99,
+        "stock": 1,
+        "rarity": "Legendary",
+        "image_url": "url10"
+      },
+      {
+        "card_id": 41,
+        "name": "Shanks",
+        "description": "A character from the anime series One Piece.",
+        "price": 25.99,
+        "stock": 4,
+        "rarity": "Epic",
+        "image_url": "url6"
+      },
+      {
+        "card_id": 42,
+        "name": "Trafalgar Law",
+        "description": "A character from the anime series One Piece.",
+        "price": 50.99,
+        "stock": 1,
+        "rarity": "Legendary",
+        "image_url": "url7"
+      },
+      {
+        "card_id": 43,
+        "name": "Yamato",
+        "description": "A character from the anime series One Piece.",
+        "price": 12.49,
+        "stock": 8,
+        "rarity": "Common",
+        "image_url": "url8"
+      },
+      {
+        "card_id": 44,
+        "name": "Boa Hancock",
+        "description": "A character from the anime series One Piece.",
+        "price": 18.99,
+        "stock": 5,
+        "rarity": "Rare",
+        "image_url": "url9"
+      }
+    ]
+  },
+  {
+    "category": "My Hero Academic",
+    "items": [
+      {
+        "card_id": 46,
+        "name": "Katsuki Bakugo",
+        "description": "A character from the anime series My Hero Academic.",
+        "price": 25.99,
+        "stock": 4,
+        "rarity": "Epic",
+        "image_url": "url6"
+      },
+      {
+        "card_id": 47,
+        "name": "Izuku Midoriya",
+        "description": "A character from the anime series My Hero Academic.",
+        "price": 50.99,
+        "stock": 1,
+        "rarity": "Legendary",
+        "image_url": "url7"
+      },
+      {
+        "card_id": 48,
+        "name": "All Might",
+        "description": "A character from the anime series My Hero Academic.",
+        "price": 12.49,
+        "stock": 8,
+        "rarity": "Common",
+        "image_url": "url8"
+      },
+      {
+        "card_id": 49,
+        "name": "Aizawa",
+        "description": "A character from the anime series My Hero Academic.",
+        "price": 18.99,
+        "stock": 5,
+        "rarity": "Rare",
+        "image_url": "url9"
+      },
+      {
+        "card_id": 50,
+        "name": "Todoroki",
+        "description": "A character from the anime series My Hero Academic.",
+        "price": 40.99,
+        "stock": 1,
+        "rarity": "Legendary",
+        "image_url": "url10"
+      },
+      {
+        "card_id": 51,
+        "name": "All For One",
+        "description": "A character from the anime series My Hero Academic.",
+        "price": 25.99,
+        "stock": 4,
+        "rarity": "Epic",
+        "image_url": "url6"
+      },
+      {
+        "card_id": 52,
+        "name": "Frog",
+        "description": "A character from the anime series My Hero Academic.",
+        "price": 50.99,
+        "stock": 1,
+        "rarity": "Legendary",
+        "image_url": "url7"
+      },
+      {
+        "card_id": 53,
+        "name": "Shigaraki",
+        "description": "A character from the anime series My Hero Academic.",
+        "price": 12.49,
+        "stock": 8,
+        "rarity": "Common",
+        "image_url": "url8"
+      },
+      {
+        "card_id": 54,
+        "name": "Kuoka Jiro",
+        "description": "A character from the anime series My Hero Academic.",
+        "price": 18.99,
+        "stock": 5,
+        "rarity": "Rare",
+        "image_url": "url9"
+      },
+      {
+        "card_id": 55,
+        "name": "Kirishima",
+        "description": "A character from the anime series My Hero Academic.",
+        "price": 18.99,
+        "stock": 5,
+        "rarity": "Rare",
+        "image_url": "url9"
+      }
+    ]
+  }
+]
 }

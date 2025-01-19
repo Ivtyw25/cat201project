@@ -18,7 +18,7 @@ import java.util.LinkedHashMap;
 
 public class ReadWriteUser {
 
-    private static final String USERS_FILE_PATH = "C:\\Users\\cat201project\\src\\main\\webapp\\data\\users.json";
+    private static final String USERS_FILE_PATH = "C:\\Users\\junki\\cat201project\\src\\main\\webapp\\data\\users.json";
     private static final Gson gson = new GsonBuilder()
             .setPrettyPrinting()
             .disableHtmlEscaping()
@@ -42,10 +42,11 @@ public class ReadWriteUser {
                 JsonElement jsonElement = JsonParser.parseReader(reader);
                 JsonObject root = jsonElement.getAsJsonObject();
                 JsonArray usersArray = root.getAsJsonArray("users");
-                
+
                 System.out.println("Number of users found in JSON: " + usersArray.size());
 
-                Type listType = new TypeToken<List<Map<String, Object>>>() {}.getType();
+                Type listType = new TypeToken<List<Map<String, Object>>>() {
+                }.getType();
                 usersList = gson.fromJson(usersArray, listType);
 
                 System.out.println("Users loaded successfully. Total users: " + usersList.size());
@@ -112,7 +113,7 @@ public class ReadWriteUser {
 
         for (Map<String, Object> user : usersList) {
             System.out.println("Checking user: " + user.get("email"));
-            
+
             if (user.get("email").toString().equals(email)) {
                 System.out.println("Email matched!");
                 if (user.get("password").toString().equals(password)) {
@@ -123,7 +124,7 @@ public class ReadWriteUser {
                 }
             }
         }
-        
+
         System.out.println("No matching user found");
         return null;
     }
