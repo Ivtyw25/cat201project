@@ -35,7 +35,10 @@ const Hero = () => {
               Ka-Ching!
             </a>
 
-            <a className="px-8 py-3 text-lg font-semibold border hover-2 rounded cursor-pointer border-gray-800">
+            <a
+              className="px-8 py-3 text-lg font-semibold border hover-2 rounded cursor-pointer border-gray-800"
+              onClick={() => handleNavigation({ route: "/naruto" })}
+            >
               Explore More
             </a>
           </div>
