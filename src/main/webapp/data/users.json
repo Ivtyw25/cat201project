@@ -43,7 +43,7 @@
       "zip": "08007",
       "country": "MALAYSIA",
       "role": "user",
-      "wallet": 412.12
+      "wallet": 1910.12
     },
     {
       "user_id": 4,
@@ -82,10 +82,25 @@
       "email": "mervynchew0095@gmail.com",
       "password": "12345678",
       "phone": "634884",
-      "address": "13, TAMAN MUTIARA OFF, JALAN SEKERAT, 08000 SUNGAI PETANI, KEDAH",
+      "address": "13, TAMAN MUTIARA OFF, JALAN SEKERAT",
       "city": "SUNGAI PETANI",
       "state": "KEDAH",
       "zip": "08000",
+      "country": "MALAYSIA",
+      "role": "user",
+      "wallet": 0.0
+    },
+    {
+      "user_id": 7,
+      "username": "Ivantham127",
+      "full_name": "IVAN THAM YIP WENG",
+      "email": "Ivantham789@gmail.com",
+      "password": "123456",
+      "phone": "0123148129",
+      "address": "7J,JALAN KOLAM AIR",
+      "city": "SUNGAI PETANI",
+      "state": "KEDAH",
+      "zip": "41200",
       "country": "MALAYSIA",
       "role": "user",
       "wallet": 0.0

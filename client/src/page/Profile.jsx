@@ -33,7 +33,7 @@ const Profile = () => {
       const newWalletBalance = Number(userData.wallet) + Number(topUpAmount);
 
       const response = await fetch(
-        "http://localhost:8080/cat201project/Wallet",
+        "http://localhost:8080/cat201project/WalletTopUp",
         {
           method: "POST",
           headers: {
@@ -47,7 +47,7 @@ const Profile = () => {
           }),
         }
       );
-      console.log("User ID in profile:", userData.user_id); // Check if this is null
+      
       console.log("User data:", userData);
       const result = await response.json();
       console.log("API response:", result);  // Debug the response

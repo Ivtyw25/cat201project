@@ -71,6 +71,13 @@ public class Login extends HttpServlet {
             responseData.put("username", user.get("username"));
             responseData.put("wallet", user.get("wallet"));
             responseData.put("user_id", user.get("user_id"));
+            responseData.put("address", user.get("address"));
+            responseData.put("phone", user.get("phone"));
+            responseData.put("city", user.get("city"));
+            responseData.put("state", user.get("state"));
+            responseData.put("zip", user.get("zip"));
+            responseData.put("country", user.get("country"));
+            responseData.put("full_name", user.get("full_name"));
 
             System.out.println("Response data being sent: " + responseData);
 

@@ -20,7 +20,7 @@ import java.util.LinkedHashMap;
 
 public class ReadWriteUser {
 
-    private static final String USERS_FILE_PATH = "C:\\Users\\junki\\cat201project\\src\\main\\webapp\\data\\users.json";
+    private static final String USERS_FILE_PATH = "C:\\Users\\USER\\Documents\\Y2_S1\\CAT 201\\cat201project\\src\\main\\webapp\\data\\users.json";
     private static final Gson gson = new GsonBuilder()
             .setPrettyPrinting()
             .disableHtmlEscaping()

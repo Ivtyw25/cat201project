@@ -9,8 +9,8 @@ import java.util.Map;
 import java.util.LinkedHashMap;
 import java.util.HashMap;
 
-@WebServlet("/Wallet")
-public class WalletServlet extends HttpServlet {
+@WebServlet("/WalletTopUp")
+public class WalletServletTopUp extends HttpServlet {
 
     private static final String USER_FILE_PATH = "C:/Users/USER/Documents/Y2_S1/CAT 201/cat201project/src/main/webapp/data/users.json";
     private final Gson gson = new GsonBuilder().setPrettyPrinting().create();
@@ -63,7 +63,7 @@ public class WalletServlet extends HttpServlet {
                         System.out.println("Current wallet: " + currentWallet); // Debug log
                         
                         // Apply the operation (subtract amount)
-                        user.addProperty("wallet", currentWallet - amount);
+                        user.addProperty("wallet", currentWallet + amount);
                         System.out.println("New wallet amount: " + (currentWallet - amount)); // Debug log
                         success = true;
                         break;
