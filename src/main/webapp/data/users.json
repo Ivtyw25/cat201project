@@ -12,7 +12,8 @@
       "state": "KEDAH",
       "zip": "50000",
       "country": "MALAYSIA",
-      "role": "admin"
+      "role": "admin",
+      "wallet": 1000.00
     },
     {
       "user_id": 2,
@@ -26,7 +27,8 @@
       "state": "SELANGOR",
       "zip": "46000",
       "country": "MALAYSIA",
-      "role": "user"
+      "role": "user",
+      "wallet": 500.00
     },
     {
       "user_id": 3,
@@ -40,7 +42,8 @@
       "state": "KEDAH",
       "zip": "08007",
       "country": "MALAYSIA",
-      "role": "user"
+      "role": "user",
+      "wallet": 600.00
     },
     {
       "user_id": 4,
@@ -54,7 +57,8 @@
       "state": "SELANGOR",
       "zip": "41200",
       "country": "MALAYSIA",
-      "role": "user"
+      "role": "user",
+      "wallet": 700.00
     }
   ]
 }

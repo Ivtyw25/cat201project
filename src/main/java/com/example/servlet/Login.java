@@ -19,7 +19,10 @@ public class Login extends HttpServlet {
 
     @Override
     public void init() throws ServletException {
+        super.init();
+        System.out.println("=== Initializing Login Servlet ===");
         ReadWriteUser.loadUsers();
+        System.out.println("=== Login Servlet Initialized ===");
     }
 
     @Override
@@ -39,7 +42,15 @@ public class Login extends HttpServlet {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
 
+        System.out.println("=== Login Debug ===");
+        System.out.println("Received email: " + email);
+        System.out.println("Received password: " + password);
+
+        // Load users before validation (as a safeguard)
+        ReadWriteUser.loadUsers();
+
         Map<String, Object> user = ReadWriteUser.validateLogin(email, password);
+        System.out.println("User validation result: " + user);
 
         response.setContentType("application/json");
         PrintWriter out = response.getWriter();
@@ -51,11 +62,15 @@ public class Login extends HttpServlet {
             responseData.put("email", user.get("email"));
             responseData.put("role", user.get("role")); // Make sure your user data includes role
             responseData.put("username", user.get("username"));
+            responseData.put("wallet", user.get("wallet"));
+
+            System.out.println("Response data being sent: " + responseData);
 
             // Convert to JSON and send response
             String jsonResponse = new Gson().toJson(responseData);
             response.setStatus(HttpServletResponse.SC_OK);
             out.print(jsonResponse);
+            out.flush();
         } else {
             Map<String, Object> errorResponse = new HashMap<>();
             errorResponse.put("success", false);
@@ -64,6 +79,9 @@ public class Login extends HttpServlet {
             String jsonResponse = new Gson().toJson(errorResponse);
             response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
             out.print(jsonResponse);
+            out.flush();
+            
+            System.out.println("Login failed for email: " + email);
         }
     }
 

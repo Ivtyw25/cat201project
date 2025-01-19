@@ -18,7 +18,7 @@ import java.util.LinkedHashMap;
 
 public class ReadWriteUser {
 
-    private static final String USERS_FILE_PATH = "C:\\Users\\cat201project\\src\\main\\webapp\\data\\users.json";
+    private static final String USERS_FILE_PATH = "src/main/webapp/data/users.json";
     private static final Gson gson = new GsonBuilder()
             .setPrettyPrinting()
             .disableHtmlEscaping()
@@ -28,9 +28,13 @@ public class ReadWriteUser {
 
     public static void loadUsers() {
         try {
+            // Debug log
+            System.out.println("=== Loading Users ===");
+            System.out.println("Attempting to load from: " + USERS_FILE_PATH);
+            
             File file = new File(USERS_FILE_PATH);
-            System.out.println("Attempting to load users from: " + file.getAbsolutePath());
             System.out.println("File exists: " + file.exists());
+            System.out.println("Absolute path: " + file.getAbsolutePath());
 
             if (!file.exists()) {
                 System.out.println("Users file not found!");
@@ -43,21 +47,16 @@ public class ReadWriteUser {
                 JsonObject root = jsonElement.getAsJsonObject();
                 JsonArray usersArray = root.getAsJsonArray("users");
                 
-                System.out.println("Number of users found in JSON: " + usersArray.size());
-
                 Type listType = new TypeToken<List<Map<String, Object>>>() {}.getType();
                 usersList = gson.fromJson(usersArray, listType);
-
-                System.out.println("Users loaded successfully. Total users: " + usersList.size());
+                
+                System.out.println("Successfully loaded users. Count: " + usersList.size());
+                // Print each user for debugging
                 for (Map<String, Object> user : usersList) {
                     System.out.println("Loaded user: " + user.get("email") + ", role: " + user.get("role"));
                 }
             }
 
-            if (usersList == null) {
-                System.out.println("usersList is null after loading, creating new ArrayList");
-                usersList = new ArrayList<>();
-            }
         } catch (Exception e) {
             System.out.println("Error loading users: " + e.getMessage());
             e.printStackTrace();

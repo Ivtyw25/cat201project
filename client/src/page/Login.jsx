@@ -1,51 +1,62 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { homeLogo } from "../assets/icons";
 import { loginImage } from "../assets/images";
 
 const Login = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const handleNavigation = ({route}) => {
-      navigate(route);
+  const handleNavigation = ({ route }) => {
+    navigate(route);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
-    try {
-      const response = await fetch('http://localhost:8080/cat201project/Login', {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
 
-      if (!response.ok) {
-        throw new Error('Failed to fetch user data');
-      }
+    try {
+      const response = await fetch(
+        "http://localhost:8080/cat201project/Login",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+          body: `action=login&email=${encodeURIComponent(
+            email.trim()
+          )}&password=${encodeURIComponent(password.trim())}`,
+        }
+      );
 
       const data = await response.json();
-      const users = data.users; // Access the "users" array inside the returned JSON
+      console.log("Login response data:", data);
 
-      // Find user with matching email and password
-      const user = users.find(u => u.email.toLowerCase() === email.toLowerCase() && u.password === password);
+      if (data.success) {
+        const userData = {
+          email: data.email,
+          role: data.role,
+          username: data.username,
+          wallet: Number(data.wallet),
+        };
+        console.log("About to store user data:", userData);
 
-      if (user) {
-        // Store user data in localStorage
-        localStorage.setItem('user', JSON.stringify(user));
-        
-        // Redirect to home page
-        navigate('/');
+        localStorage.setItem("user", JSON.stringify(userData));
+
+        const storedData = localStorage.getItem("user");
+        console.log("Stored user data:", JSON.parse(storedData));
+
+        if (data.role === "admin") {
+          navigate("/cardCategory");
+        } else {
+          navigate("/");
+        }
       } else {
-        alert('Invalid email or password');
+        alert("Invalid email or password");
       }
-      
     } catch (error) {
-      console.error('Error:', error);
-      alert('Login failed. Please try again.');
+      console.error("Error:", error);
+      alert("Login failed. Please try again.");
     }
   };
 
@@ -85,13 +96,14 @@ const Login = () => {
             <div className="mx-auto max-w-xs">
               <button
                 className="mt-5 tracking-wide font-semibold bg-gray-100 text-slate-600 hover:text-white w-full py-4 rounded-lg hover:bg-gray-600 all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none"
-                onClick={() => handleNavigation({ route: '/signuppage' })}
+                onClick={() => handleNavigation({ route: "/signuppage" })}
                 type="button"
               >
                 <span className="ml-3">Sign Up</span>
               </button>
               <p className="mt-6 text-xs text-gray-600 text-center">
-                I agree to abide by templatana's Terms of Service and its Privacy Policy
+                I agree to abide by templatana's Terms of Service and its
+                Privacy Policy
               </p>
             </div>
           </div>
