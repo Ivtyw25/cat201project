@@ -9,16 +9,16 @@ const App = () => {
   return (
     <main className="relative">
         <Nav navLinks={navLinks}/>
-        <section className="xl:padding-l wide:padding-r padding-b">
+        <section id="home" className="xl:padding-l wide:padding-r padding-b">
           <Hero/>
         </section>
-        <section className="padding-x padding-b">
+        <section id="product" className="padding-x padding-b">
           <ProductCategories/>
         </section>
         <section className="padding-x padding-b">
           <BestSelling/>
         </section>
-        <section className="padding-t">
+        <section id="footer" className="padding-t">
           <Footer/>
         </section>
 

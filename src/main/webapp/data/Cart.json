@@ -32,7 +32,12 @@
     },
     {
       "user_id": 5,
-      "items": []
+      "items": [
+        {
+          "card_id": 2,
+          "quantity": 1
+        }
+      ]
     },
     {
       "user_id": 6,

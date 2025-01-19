@@ -1,8 +1,8 @@
 export const navLinks = [
     { href: "#home", label: "Home" },
     { href: "#product", label: "Product" },
-    { href: "#help", label: "Help"},
-    { href: "#contact", label: "Contact"}
+    { href: "#footer", label: "Footer" },
+
 ];
 
 export const readCardEndpoint = 'http://localhost:8080/cat201project/readCard'

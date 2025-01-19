@@ -38,9 +38,6 @@ const BestSelling = () => {
           <p className="max-md:text-2xl text-3xl flex-1 mt-2 font-bold font-palanquin">
             Best Selling Cards
           </p>
-          <a className="px-8 py-3 text-lg font-semibold border hover-2 rounded cursor-pointer border-gray-800">
-            View All
-          </a>
         </div>
       </div>
       <div>
