@@ -137,6 +137,60 @@
           "stock": 10,
           "rarity": "Uncommon",
           "image_url": "Espeon"
+        },
+        {
+          "card_id": 56,
+          "name": "Duskull",
+          "description": "A psychic-type evolution of Eevee.",
+          "price": 10.99,
+          "stock": 10,
+          "rarity": "Uncommon",
+          "image_url": "Duskull"
+        },
+        {
+          "card_id": 57,
+          "name": "Spritzee",
+          "description": "A psychic-type evolution of Eevee.",
+          "price": 10.99,
+          "stock": 10,
+          "rarity": "Uncommon",
+          "image_url": "Spritzee"
+        }
+        ,        {
+          "card_id": 58,
+          "name": "Sylveon Ex",
+          "description": "A psychic-type evolution of Eevee.",
+          "price": 10.99,
+          "stock": 10,
+          "rarity": "Uncommon",
+          "image_url": "SylveonEx"
+        },
+        {
+          "card_id": 59,
+          "name": "Larvitar",
+          "description": "A psychic-type evolution of Eevee.",
+          "price": 10.99,
+          "stock": 10,
+          "rarity": "Uncommon",
+          "image_url": "Larvitar"
+        },
+        {
+          "card_id": 60,
+          "name": "Riolou",
+          "description": "A psychic-type evolution of Eevee.",
+          "price": 10.99,
+          "stock": 10,
+          "rarity": "Uncommon",
+          "image_url": "Riolou"
+        },
+        {
+          "card_id": 61,
+          "name": "Ursaluna",
+          "description": "A psychic-type evolution of Eevee.",
+          "price": 10.99,
+          "stock": 10,
+          "rarity": "Uncommon",
+          "image_url": "Ursaluna"
         }
       ]
     },
@@ -232,6 +286,60 @@
           "stock": 1,
           "rarity": "Legendary",
           "image_url": "ChimiMikasa"
+        },
+        {
+          "card_id": 62,
+          "name": "Chimi Charista",
+          "description": "A character from the anime series Attack on Titan.",
+          "price": 18.99,
+          "stock": 5,
+          "rarity": "Rare",
+          "image_url": "ChimiCharista"
+        },
+        {
+          "card_id": 63,
+          "name": "Chimi Hange",
+          "description": "A character from the anime series Attack on Titan.",
+          "price": 40.99,
+          "stock": 1,
+          "rarity": "Legendary",
+          "image_url": "ChimiHange"
+        },
+        {
+          "card_id": 64,
+          "name": "Chimi Colossal Titan",
+          "description": "A character from the anime series Attack on Titan.",
+          "price": 18.99,
+          "stock": 5,
+          "rarity": "Rare",
+          "image_url": "ChimiColossalTitan"
+        },
+        {
+          "card_id": 65,
+          "name": "Chimi Jean",
+          "description": "A character from the anime series Attack on Titan.",
+          "price": 40.99,
+          "stock": 1,
+          "rarity": "Legendary",
+          "image_url": "ChimiJean"
+        },
+        {
+          "card_id": 66,
+          "name": "Chimi Conny",
+          "description": "A character from the anime series Attack on Titan.",
+          "price": 18.99,
+          "stock": 5,
+          "rarity": "Rare",
+          "image_url": "ChimiConny"
+        },
+        {
+          "card_id": 67,
+          "name": "Chimi Reiner",
+          "description": "A character from the anime series Attack on Titan.",
+          "price": 40.99,
+          "stock": 1,
+          "rarity": "Legendary",
+          "image_url": "Chimchimi_Reiner"
         }
       ]
     },
@@ -318,6 +426,96 @@
         "stock": 1,
         "rarity": "Legendary",
         "image_url": "UchihaObitoBp"
+      },
+      {
+        "card_id": 68,
+        "name": "Naruto Uzumaki SE",
+        "description": "A character from the anime series Naruto.",
+        "price": 12.49,
+        "stock": 8,
+        "rarity": "Common",
+        "image_url": "NarutoUzumakiSe"
+      },
+      {
+        "card_id": 69,
+        "name": "Sasuke Uchiha SE",
+        "description": "A character from the anime series Naruto.",
+        "price": 40.99,
+        "stock": 1,
+        "rarity": "Legendary",
+        "image_url": "SasukeUchihaSe"
+      },
+      {
+        "card_id": 70,
+        "name": "Sakura Haruno Se",
+        "description": "A character from the anime series Naruto.",
+        "price": 12.49,
+        "stock": 8,
+        "rarity": "Common",
+        "image_url": "SakuraHarunoSe"
+      },
+      {
+        "card_id": 71,
+        "name": "Minto Nimakaze SE",
+        "description": "A character from the anime series Naruto.",
+        "price": 40.99,
+        "stock": 1,
+        "rarity": "Legendary",
+        "image_url": "MinatoNimakazeSe"
+      },
+      {
+        "card_id": 72,
+        "name": "Hinata Hyuga SE",
+        "description": "A character from the anime series Naruto.",
+        "price": 12.49,
+        "stock": 8,
+        "rarity": "Common",
+        "image_url": "HinataHyugaSe"
+      },
+      {
+        "card_id": 73,
+        "name": "Kushina Uzumaki BP",
+        "description": "A character from the anime series Naruto.",
+        "price": 40.99,
+        "stock": 1,
+        "rarity": "Legendary",
+        "image_url": "KushinaUzumakiBP"
+      },
+      {
+        "card_id": 74,
+        "name": "Tsunade BP",
+        "description": "A character from the anime series Naruto.",
+        "price": 12.49,
+        "stock": 8,
+        "rarity": "Common",
+        "image_url": "TsunadeBp"
+      },
+      {
+        "card_id": 75,
+        "name": "Kanon CP",
+        "description": "A character from the anime series Naruto.",
+        "price": 40.99,
+        "stock": 1,
+        "rarity": "Legendary",
+        "image_url": "KanonCp"
+      },
+      {
+        "card_id": 76,
+        "name": "Tobirama Senju Bp",
+        "description": "A character from the anime series Naruto.",
+        "price": 12.49,
+        "stock": 8,
+        "rarity": "Common",
+        "image_url": "TobiramaSenjuBp"
+      },
+      {
+        "card_id": 77,
+        "name": "Naruto BP",
+        "description": "A character from the anime series Naruto.",
+        "price": 40.99,
+        "stock": 1,
+        "rarity": "Legendary",
+        "image_url": "NarutoBp"
       }
     ]
   },
@@ -404,7 +602,116 @@
         "stock": 5,
         "rarity": "Rare",
         "image_url": "BoaHancock"
+      },
+      {
+        "card_id": 78,
+        "name": "Urakaka",
+        "description": "A character from the anime series One Piece.",
+        "price": 12.49,
+        "stock": 8,
+        "rarity": "Common",
+        "image_url": "Urakaka"
+      },
+      {
+        "card_id": 79,
+        "name": "Nami",
+        "description": "A character from the anime series One Piece.",
+        "price": 18.99,
+        "stock": 5,
+        "rarity": "Rare",
+        "image_url": "Nami"
+      },
+            {
+        "card_id": 78,
+        "name": "Urakaka",
+        "description": "A character from the anime series One Piece.",
+        "price": 12.49,
+        "stock": 8,
+        "rarity": "Common",
+        "image_url": "Urakaka"
+      },
+      {
+        "card_id": 79,
+        "name": "Nami",
+        "description": "A character from the anime series One Piece.",
+        "price": 18.99,
+        "stock": 5,
+        "rarity": "Rare",
+        "image_url": "Nami"
+      },
+      {
+        "card_id": 80,
+        "name": "Marshall D. Teach",
+        "description": "A character from the anime series One Piece.",
+        "price": 12.49,
+        "stock": 8,
+        "rarity": "Common",
+        "image_url": "MarshallDTeach"
+      },
+      {
+        "card_id": 81,
+        "name": "Zoro",
+        "description": "A character from the anime series One Piece.",
+        "price": 18.99,
+        "stock": 5,
+        "rarity": "Rare",
+        "image_url": "ZoroFoil"
+      },
+      {
+        "card_id": 82,
+        "name": "Silver",
+        "description": "A character from the anime series One Piece.",
+        "price": 12.49,
+        "stock": 8,
+        "rarity": "Common",
+        "image_url": "Silver"
+      },
+      {
+        "card_id": 83,
+        "name": "Buggy",
+        "description": "A character from the anime series One Piece.",
+        "price": 18.99,
+        "stock": 5,
+        "rarity": "Rare",
+        "image_url": "Buggy"
+      },
+      {
+        "card_id": 84,
+        "name": "Doflamingo",
+        "description": "A character from the anime series One Piece.",
+        "price": 12.49,
+        "stock": 8,
+        "rarity": "Common",
+        "image_url": "Doflamingo"
+      },
+      {
+        "card_id": 85,
+        "name": "Dahe",
+        "description": "A character from the anime series One Piece.",
+        "price": 18.99,
+        "stock": 5,
+        "rarity": "Rare",
+        "image_url": "Dahe"
+      },
+      {
+        "card_id": 86,
+        "name": "Vivi",
+        "description": "A character from the anime series One Piece.",
+        "price": 12.49,
+        "stock": 8,
+        "rarity": "Common",
+        "image_url": "Vivi"
+      },
+      {
+        "card_id": 87,
+        "name": "Ace",
+        "description": "A character from the anime series One Piece.",
+        "price": 18.99,
+        "stock": 5,
+        "rarity": "Rare",
+        "image_url": "Ace"
       }
+
     ]
   },
   {
@@ -499,7 +806,81 @@
         "stock": 2,
         "rarity": "Legendary",
         "image_url": "KuokaJiro"
+      },
+      {
+        "card_id": 88,
+        "name": "Urakaka",
+        "description": "A character from My Hero Academic.",
+        "price": 18.99,
+        "stock": 5,
+        "rarity": "Rare",
+        "image_url": "Urakaka"
+      },  
+      {
+        "card_id": 89,
+        "name": "Izuku Midoriya BP",
+        "description": "A special edition card featuring Izuku Midoriya.",
+        "price": 32.99,
+        "stock": 2,
+        "rarity": "Legendary",
+        "image_url": "IzukuMidoriyaBp"
+      },
+      {
+        "card_id": 90,
+        "name": "Shigaraki BP",
+        "description": "A special edition card featuring Shigaraki.",
+        "price": 18.99,
+        "stock": 5,
+        "rarity": "Rare",
+        "image_url": "ShigarakiBp"
+      },
+      {
+        "card_id": 91,
+        "name": "Katsuki Bakugo Bp",
+        "description": "A special edition card featuring Katsuki Bakugo.",
+        "price": 32.99,
+        "stock": 2,
+        "rarity": "Legendary",
+        "image_url": "KatsukiBakugoBP"
+      },
+      {
+        "card_id": 92,
+        "name": "Todoroki",
+        "description": "A character from My Hero Academic.",
+        "price": 18.99,
+        "stock": 5,
+        "rarity": "Rare",
+        "image_url": "Todoroki"
+      },
+      {
+        "card_id": 93,
+        "name": "All Might BP",
+        "description": "A special edition card featuring All Might.",
+        "price": 32.99,
+        "stock": 2,
+        "rarity": "Legendary",
+        "image_url": "AllMightBp"
+      },
+      {
+        "card_id": 94,
+        "name": "All For One BP",
+        "description": "A special edition card featuring All For One.",
+        "price": 18.99,
+        "stock": 5,
+        "rarity": "Rare",
+        "image_url": "AllForOneBp"
+      },
+      {
+        "card_id": 95,
+        "name": "Urakaka BP",
+        "description": "A special edition card featuring Urakaka.",
+        "price": 32.99,
+        "stock": 2,
+        "rarity": "Legendary",
+        "image_url": "UrakakaBp"
       }
+  
+      
     ]
   }
 ]

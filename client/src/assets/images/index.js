@@ -88,6 +88,12 @@ import ChimiConny from "./chimi_conny.jpg"
 import ChimiHange from "./chimi_hange.jpg"
 import ChimiJean from "./chimi_jean.jpg"
 import ChimiReiner from "./chimi_reiner.jpg"
+import Duskull from "./duskull.png"
+import Larvitar from "./larvitar.png"
+import Riolou from "./riolou.png"
+import Spritzee from "./spritzee.png"
+import Sylveon from "./sylveon.png"
+import Ursaluna from "./ursaluna.png"
 
 // Group exports by category
 export const Images = {
@@ -113,7 +119,13 @@ export const Images = {
     PikachuEx,
     Pyroar,
     Slowking,
-    Suicune
+    Suicune,
+    Duskull,
+    Larvitar,
+    Riolou,
+    Spritzee,
+    Sylveon,
+    Ursaluna
   },
 
   // Attack on Titan characters
