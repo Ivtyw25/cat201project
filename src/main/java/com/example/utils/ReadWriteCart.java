@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.Map;
 
 public class ReadWriteCart {
-    private static final String CART_FILE_PATH = "C:/Users/USER/Documents/Y2_S1/CAT 201/cat201project/src/main/webapp/data/Cart.json";
+    private static final String CART_FILE_PATH = "C:\\Users\\junki\\cat201project\\src\\main\\webapp\\data\\Cart.json";
     private static final Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
     public static boolean addToCart(int userId, int cardId, int quantity) {

@@ -8,16 +8,8 @@
       "user_id": 2,
       "items": [
         {
-          "card_id": 9,
-          "quantity": 3
-        },
-        {
-          "card_id": 12,
-          "quantity": 1
-        },
-        {
-          "card_id": 13,
-          "quantity": 1
+          "card_id": 6,
+          "quantity": 2
         }
       ]
     },

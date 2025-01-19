@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Nav from "./components/Nav";
 import axios from "axios";
 import { FaShoppingCart, FaTrash } from "react-icons/fa";
+import { Images } from "./assets/images";
 
 const Cart = () => {
   const [cartItems, setCartItems] = useState([]);
@@ -201,7 +202,7 @@ const Cart = () => {
                       </div>
                       <div className="ml-4 flex-1 flex items-center">
                         <img
-                          src={card.image_url}
+                          src={Images[card.category]?.[card.image_url]}
                           alt={card.name}
                           className="w-24 h-24 object-cover rounded-lg"
                         />

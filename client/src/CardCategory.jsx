@@ -8,7 +8,6 @@ import Footer from "./sections/Footer";
 import ItemCard from "./components/ItemCard";
 import { useNavigate } from "react-router-dom";
 
-
 // eslint-disable-next-line react/prop-types
 const CardCategory = ({ category }) => {
   const [cards, setCards] = useState([]);
@@ -49,7 +48,7 @@ const CardCategory = ({ category }) => {
     }
 
     const user = JSON.parse(userStr);
-    const userId = user.user_id; // Get the user_id from stored data
+    const userId = user.user_id;
 
     if (!userId) {
       alert("User ID not found. Please log in again.");
@@ -57,15 +56,19 @@ const CardCategory = ({ category }) => {
       return;
     }
 
-    console.log("Adding to cart for user:", userId);
-
     try {
+
       const response = await fetch("http://localhost:8080/cat201project/Cart", {
         method: "POST",
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
         },
-        body: `action=addToCart&userId=${user.user_id}&cardId=${cardId}&quantity=${quantity}`,
+        body: new URLSearchParams({
+          action: "addToCart",
+          userId: user.user_id.toString(),
+          cardId: cardId.toString(),
+          quantity: quantity.toString(),
+        }).toString(),
       });
 
       const data = await response.json();
@@ -73,11 +76,11 @@ const CardCategory = ({ category }) => {
         alert("Added to cart successfully!");
         setShowModal(false);
       } else {
-        alert("Failed to add to cart");
+        alert(`Failed to add to cart: ${data.message || "Unknown error"}`);
       }
     } catch (error) {
       console.error("Error adding to cart:", error);
-      alert("Error adding to cart");
+      alert(`Error adding to cart: ${error.message}`);
     }
   };
 
@@ -99,35 +102,18 @@ const CardCategory = ({ category }) => {
       <section className="padding-x padding-t h-full">
         <div className="flex flex-row max-lg:flex-col gap-10">
           <SideNav />
-          <div className="flex flex-wrap -m-4">
-            {cards.map((card) => (
-              <div
-                key={card.card_id}
-                className="p-4 w-full md:w-1/2 lg:w-1/3 cursor-pointer"
-                onClick={() => handleCardClick(card)}
-              >
-                <div className="border rounded-lg p-4 hover:shadow-lg transition-shadow">
-                  <img
-                    src={card.image_url}
-                    alt={card.name}
-                    className="w-full h-48 object-cover rounded-lg"
-                  />
-                  <h3 className="text-xl font-semibold mt-2">{card.name}</h3>
-                  <p className="text-gray-600 line-clamp-2">
-                    {card.description}
-                  </p>
-                  <div className="mt-2">
-                    <span className="font-bold">${card.price}</span>
-                    <span className="ml-2 text-sm text-gray-500">
-                      Stock: {card.stock}
-                    </span>
-                    <span className="ml-2 text-sm text-blue-500">
-                      {card.rarity}
-                    </span>
-                  </div>
-                </div>
-              </div>
-            ))}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-10 w-full">
+            {cards.map((card) => {
+              const image = Images[card.category]?.[card.image_url];
+              return (
+                <ItemCard
+                  key={card.card_id}
+                  card={card}
+                  image={image}
+                  onClick={() => handleCardClick(card)}
+                />
+              );
+            })}
           </div>
         </div>
       </section>
@@ -164,7 +150,9 @@ const CardCategory = ({ category }) => {
               <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-4">
                   <img
-                    src={selectedCard.image_url}
+                    src={
+                      Images[selectedCard.category]?.[selectedCard.image_url]
+                    }
                     alt={selectedCard.name}
                     className="w-full rounded-lg shadow-lg"
                   />
@@ -255,7 +243,7 @@ const CardCategory = ({ category }) => {
           </div>
         </div>
       )}
-    <Footer />
+      <Footer />
     </main>
   );
 };

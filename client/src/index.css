@@ -73,53 +73,110 @@
   }
 }
 
-/* Add these styles to your CSS file */
-.slider-container .slick-slide {
-  padding: 0 8px;
+/* Slider Container Styles */
+.slider-container {
+  margin: 0 auto;
+  position: relative;
 }
 
+/* Track Styles */
 .slider-container .slick-track {
   display: flex !important;
-  gap: 1rem;
   margin-left: 0;
   margin-right: 0;
+  gap: 0;
+  padding: 1rem 0;
+}
+
+/* Slide Styles */
+.slider-container .slick-slide {
+  height: inherit !important;
+  padding: 0.5rem;
 }
 
 .slider-container .slick-slide > div {
   height: 100%;
 }
 
-/* Style the dots */
-.slick-dots {
-  bottom: -40px;
-}
-
-.slick-dots li button:before {
-  font-size: 12px;
-}
-
-/* Style the arrows */
-.slick-prev, .slick-next {
-  z-index: 1;
+/* Arrow Styles */
+.slick-prev,
+.slick-next {
+  width: 40px;
+  height: 40px;
+  z-index: 10;
+  transition: all 0.2s ease;
 }
 
 .slick-prev {
-  left: -25px;
+  left: -45px;
 }
 
 .slick-next {
-  right: -25px;
+  right: -45px;
 }
 
-/* Make sure cards are equal height */
-.slider-container .slick-track {
-  display: flex !important;
+.slick-prev:before,
+.slick-next:before {
+  font-size: 24px;
+  opacity: 0.8;
+  color: #1e40af; /* Blue color for arrows */
 }
 
-.slider-container .slick-slide {
-  height: inherit !important;
+.slick-prev:hover:before,
+.slick-next:hover:before {
+  opacity: 1;
 }
 
-.slider-container .slick-slide > div {
-  height: 100%;
+/* Dots Styles */
+.slick-dots {
+  bottom: -35px;
+}
+
+.slick-dots li button:before {
+  font-size: 10px;
+  color: #1e40af; /* Blue color for dots */
+  opacity: 0.5;
+}
+
+.slick-dots li.slick-active button:before {
+  opacity: 1;
+  color: #1e40af; /* Blue color for active dot */
+}
+
+/* Responsive Styles */
+@media (max-width: 640px) {
+  .slider-container {
+    padding: 0;
+  }
+  
+  .slick-dots {
+    bottom: -25px;
+  }
+  
+  .slider-container .slick-slide {
+    padding: 0.25rem;
+  }
+}
+
+/* Add smooth transitions */
+.slick-slide {
+  transition: all 0.3s ease;
+}
+
+/* Optional: Add hover effect to cards */
+.slick-slide:hover {
+  transform: translateY(-5px);
+}
+
+/* Ensure proper spacing on all screen sizes */
+@media (min-width: 1024px) {
+  .slider-container {
+    margin: 0 2rem;
+  }
+}
+
+@media (min-width: 1536px) {
+  .slider-container {
+    margin: 0 4rem;
+  }
 }

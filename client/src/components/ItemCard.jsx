@@ -1,8 +1,9 @@
-const ItemCard = ({ card, image }) => {
+const ItemCard = ({ card, image, onClick }) => {
   return (
     <div
+      onClick={onClick}
       key={card.card_id}
-      className="w-[160px] sm:w-[200px] md:w-[240px] lg:w-[280px] 
+      className="w-[160px] cursor-pointer sm:w-[200px] md:w-[240px] lg:w-[280px] 
               bg-white rounded-xl shadow-md overflow-hidden 
               hover:shadow-lg transition-shadow duration-300"
     >
