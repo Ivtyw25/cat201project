@@ -26,11 +26,18 @@ public class Login extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String action = request.getParameter("action");
+        System.out.println("Received POST request with action: " + action); // Debug log
 
         if ("login".equals(action)) {
+            System.out.println("Handling login request");
             handleLogin(request, response);
         } else if ("signup".equals(action)) {
+            System.out.println("Handling signup request");
             handleSignup(request, response);
+        } else {
+            System.out.println("Invalid action received: " + action);
+            response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+            response.getWriter().write("Invalid action");
         }
     }
 
@@ -60,7 +67,7 @@ public class Login extends HttpServlet {
             Map<String, Object> errorResponse = new HashMap<>();
             errorResponse.put("success", false);
             errorResponse.put("message", "Invalid email or password");
-            
+
             String jsonResponse = new Gson().toJson(errorResponse);
             response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
             out.print(jsonResponse);
@@ -70,6 +77,8 @@ public class Login extends HttpServlet {
     private void handleSignup(HttpServletRequest request, HttpServletResponse response)
             throws IOException {
         try {
+            System.out.println("Starting signup process..."); // Debug log
+
             Map<String, Object> newUser = new HashMap<>();
             newUser.put("username", request.getParameter("username"));
             newUser.put("full_name", request.getParameter("full_name"));
@@ -83,20 +92,46 @@ public class Login extends HttpServlet {
             newUser.put("country", request.getParameter("country"));
             newUser.put("role", "user");
 
-            ReadWriteUser.addUser(newUser);
+            System.out.println("New user data: " + newUser); // Debug log
 
-            if (ReadWriteUser.saveUsers()) {
+            ReadWriteUser.addUser(newUser);
+            System.out.println("User added to list successfully"); // Debug log
+
+            boolean saved = ReadWriteUser.saveUsers();
+            System.out.println("Save result: " + saved); // Debug log
+
+            if (saved) {
+                response.setContentType("application/json");
+                Map<String, Object> successResponse = new HashMap<>();
+                successResponse.put("success", true);
+                successResponse.put("message", "User registered successfully");
+                response.getWriter().write(new Gson().toJson(successResponse));
                 response.setStatus(HttpServletResponse.SC_OK);
             } else {
+                response.setContentType("application/json");
+                Map<String, Object> errorResponse = new HashMap<>();
+                errorResponse.put("success", false);
+                errorResponse.put("message", "Failed to save user");
+                response.getWriter().write(new Gson().toJson(errorResponse));
                 response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-                response.getWriter().write("Failed to save user");
             }
         } catch (IllegalArgumentException e) {
+            System.out.println("Signup validation error: " + e.getMessage()); // Debug log
+            response.setContentType("application/json");
+            Map<String, Object> errorResponse = new HashMap<>();
+            errorResponse.put("success", false);
+            errorResponse.put("message", e.getMessage());
+            response.getWriter().write(new Gson().toJson(errorResponse));
             response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
-            response.getWriter().write(e.getMessage());
         } catch (Exception e) {
+            System.out.println("Unexpected error during signup: " + e.getMessage()); // Debug log
+            e.printStackTrace(); // Print full stack trace
+            response.setContentType("application/json");
+            Map<String, Object> errorResponse = new HashMap<>();
+            errorResponse.put("success", false);
+            errorResponse.put("message", "An error occurred during signup: " + e.getMessage());
+            response.getWriter().write(new Gson().toJson(errorResponse));
             response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-            response.getWriter().write("An error occurred during signup");
         }
     }
 

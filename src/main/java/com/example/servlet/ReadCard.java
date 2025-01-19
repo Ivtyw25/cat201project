@@ -33,7 +33,7 @@ public class ReadCard extends HttpServlet {
         PrintWriter out = response.getWriter();
 
         // Load cards from the JSON file using absolute path
-        String absolutePath = "C:/Users/cat201project/src/main/webapp/data/Card.json";
+        String absolutePath = "C:\\Users\\junki\\cat201project\\src\\main\\webapp\\data\\Card.json";
         try (InputStream inputStream = new FileInputStream(absolutePath)) {
             if (inputStream == null) {
                 // Handle the case where the file is not found
