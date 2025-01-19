@@ -62,6 +62,16 @@ import ShigarakiBp from "./shigaraki_bp.png"
 import TodorokiBp from "./todoroki_bp.png"
 import UrakakaBp from "./urakaka_bp.png"
 import Urakaka from "./urakaka.jpg"
+import Ace from "./ace.jpg"
+import Buggy from "./buggy.png"
+import Dahe from "./dahe.jpg"
+import Doflamingo from "./doflamingo.jpg"
+import MarshallDTeach from "./marshall_d._teach.jpg"
+import Nami from "./nami.jpg"
+import Silver from "./silver.png"
+import Tashigi from "./tashigi.jpg"
+import Vivi from "./vivi.jpg"
+import ZoroFoil from "./zoro_foil.jpg"
 
 // Group exports by category
 export const Images = {
@@ -136,7 +146,17 @@ export const Images = {
     Shanks,
     TonyChopper,
     TrafalgarLaw,
-    Yamato
+    Yamato,
+    Ace,
+    Buggy,
+    Dahe,
+    Doflamingo,
+    MarshallDTeach,
+    Nami,
+    Silver,
+    Tashigi,
+    ZoroFoil,
+    Vivi
   },
 
   // Naruto characters
