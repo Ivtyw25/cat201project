@@ -52,6 +52,8 @@ const SignUp = () => {
     // Add role
     formData.append("role", "user");
 
+    console.log(formData);
+
     try {
       const response = await fetch(
         "http://localhost:8080/cat201project/Login",

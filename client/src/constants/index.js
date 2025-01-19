@@ -6,6 +6,7 @@ export const navLinks = [
 ];
 
 export const readCardEndpoint = 'http://localhost:8080/cat201project/readCard'
+export const readUserEndpoint = 'http://localhost:8080/cat201project/Login'
 
 export const navButtons = [
     {

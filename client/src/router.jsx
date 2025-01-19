@@ -5,7 +5,7 @@ import Login from "./page/Login";
 import SignUp from "./page/SignUp";
 import Cart from "./Cart";
 import Payment from "./Payment"; // Add this import
-
+import Profile from "./page/Profile";
 
 export const router = createBrowserRouter([
     {path: "/", element: <App/>},
@@ -18,4 +18,5 @@ export const router = createBrowserRouter([
     {path: "/onepiece", element: <CardCategory category="One Piece"/>},
     {path: "/pokemon", element: <CardCategory category="Pokemon"/>}, 
     {path: "/myheroacademia", element: <CardCategory category="My Hero Academia"/>},
+    {path: "/profile", element: <Profile/>},
 ]);
