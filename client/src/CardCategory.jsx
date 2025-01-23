@@ -58,7 +58,7 @@ const CardCategory = ({ category }) => {
 
     try {
 
-      const response = await fetch("http://localhost:8080/cat201project/Cart", {
+      const response = await fetch("http://localhost:8080/cat201project_war/Cart", {
         method: "POST",
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",

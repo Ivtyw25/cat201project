@@ -25,7 +25,7 @@ const Cart = () => {
 
         // Fetch cart items
         const cartResponse = await fetch(
-          `http://localhost:8080/cat201project/Cart?action=getCart&userId=${user.user_id}`
+          `http://localhost:8080/cat201project_war/Cart?action=getCart&userId=${user.user_id}`
         );
         console.log("Cart response status:", cartResponse.status);
         const cartData = await cartResponse.json();
@@ -33,7 +33,7 @@ const Cart = () => {
 
         // Fetch all cards
         const cardsResponse = await axios.get(
-          "http://localhost:8080/cat201project/readCard"
+          "http://localhost:8080/cat201project_war/readCard"
         );
         console.log("Cards response status:", cardsResponse.status);
         const cardsData = cardsResponse.data;
@@ -90,7 +90,7 @@ const Cart = () => {
       if (!userStr) return;
       const user = JSON.parse(userStr);
 
-      const response = await fetch("http://localhost:8080/cat201project/Cart", {
+      const response = await fetch("http://localhost:8080/cat201project_war/Cart", {
         method: "POST",
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
@@ -151,6 +151,7 @@ const Cart = () => {
       JSON.stringify(Array.from(selectedItems))
     );
     navigate("/payment");
+    //console.log("this is selected", selectedItems)
   };
 
   return (

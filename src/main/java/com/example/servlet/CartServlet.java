@@ -65,6 +65,10 @@ public class CartServlet extends HttpServlet {
         else if ("removeFromCart".equals(action)) {
             int cardId = Integer.parseInt(request.getParameter("cardId"));
             success = ReadWriteCart.removeFromCart(userId, cardId);
+            System.out.print("Hello here is remove from cart id is" + cardId + " succss? " + success);
+        }
+        else if ("clearCart".equals(action)){
+            int cardId = Integer.parseInt(request.getParameter("cardId"));
         }
 
         out.print(gson.toJson(Map.of("success", success)));

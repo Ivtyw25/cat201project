@@ -53,7 +53,7 @@ public class Login extends HttpServlet {
         System.out.println("Received email: " + email);
         System.out.println("Received password: " + password);
 
-        // Load users before validation (as a safeguard)
+        // Load users before validation (as a safeguard)=
         ReadWriteUser.loadUsers();
 
         Map<String, Object> user = ReadWriteUser.validateLogin(email, password);

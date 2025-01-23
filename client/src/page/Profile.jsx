@@ -47,7 +47,7 @@ const Profile = () => {
       const newWalletBalance = Number(userData.wallet) + Number(topUpAmount);
 
       const response = await fetch(
-        "http://localhost:8080/cat201project/WalletTopUp",
+        "http://localhost:8080/cat201project_war/WalletTopUp",
         {
           method: "POST",
           headers: {

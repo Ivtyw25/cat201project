@@ -12,7 +12,7 @@ import java.util.HashMap;
 @WebServlet("/WalletTopUp")
 public class WalletServletTopUp extends HttpServlet {
 
-    private static final String USER_FILE_PATH = "C:/Users/USER/Documents/Y2_S1/CAT 201/cat201project/src/main/webapp/data/users.json";
+    private static final String USER_FILE_PATH = "C:\\Users\\houyu\\cat201project\\src\\main\\webapp\\data\\users.json";
     private final Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
     @Override

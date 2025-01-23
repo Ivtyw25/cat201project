@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { homeLogo } from "../assets/icons";
 import { Images } from "../assets/images";
+import { readUserEndpoint } from "../constants";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -18,7 +19,7 @@ const Login = () => {
 
     try {
       const response = await fetch(
-        "http://localhost:8080/cat201project/Login",
+        readUserEndpoint,
         {
           method: "POST",
           headers: {

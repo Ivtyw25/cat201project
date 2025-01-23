@@ -56,7 +56,7 @@ const SignUp = () => {
 
     try {
       const response = await fetch(
-        "http://localhost:8080/cat201project/Login",
+        "http://localhost:8080/cat201project_war/Login",
         {
           method: "POST",
           headers: {

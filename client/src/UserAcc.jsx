@@ -8,7 +8,7 @@ function MovieSearch() {
   const handleFetchMovies = async () => {
     try {
       // Make a GET request to the servlet to fetch all movies
-      const response = await axios.get('http://localhost:8080/cat201project/itemServlet');
+      const response = await axios.get('http://localhost:8080/cat201project_war/itemServlet');
 
       const data = response.data;
 
