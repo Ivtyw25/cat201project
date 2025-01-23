@@ -136,4 +136,5 @@ public class ReadWriteCart {
             return true;
         }
     }
+    public static boolean clearCart(int userId,List<Integer> selectedItems) {return  true;}
 } 

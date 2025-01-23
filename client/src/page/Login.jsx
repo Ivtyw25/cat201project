@@ -17,6 +17,24 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // Validation checks
+    if (!email || !password) {
+      alert("Please fill in all required fields.");
+      return;
+    }
+
+    if (!/^[a-zA-Z0-9._%+-]+@gmail\.com$/.test(email)) {
+      alert("Please enter a valid Gmail address (must end with @gmail.com).");
+      return;
+    }
+
+    // Password validation
+    if (password.length < 6 || 
+        !/(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])/.test(password)) {
+      alert("Password must be at least 6 characters long and include at least one uppercase letter, one lowercase letter, one number, and one special character.");
+      return;
+    }
+
     try {
       const response = await fetch(
         readUserEndpoint,

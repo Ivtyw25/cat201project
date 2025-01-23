@@ -15,6 +15,14 @@
         {
           "card_id": 26,
           "quantity": 1
+        },
+        {
+          "card_id": 2,
+          "quantity": 1
+        },
+        {
+          "card_id": 40,
+          "quantity": 1
         }
       ]
     },

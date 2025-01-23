@@ -24,21 +24,28 @@ const Profile = () => {
   }, [navigate]);
 
   const handleTopUpSubmit = async () => {
+    // Validate top-up amount
     if (!topUpAmount || isNaN(topUpAmount) || Number(topUpAmount) <= 0) {
-      alert("Please enter a valid amount.");
-      return;
+        alert("Please enter a valid numeric amount.");
+        return;
     }
+
+    // Validate card number
     if (!cardNumber || cardNumber.length !== 16 || !/^\d+$/.test(cardNumber)) {
-      alert("Please enter a valid 16-digit card number.");
-      return;
+        alert("Please enter a valid 16-digit card number.");
+        return;
     }
+
+    // Validate expiry date
     if (!expiryDate || !/^\d{2}\/\d{2}$/.test(expiryDate)) {
-      alert("Please enter a valid expiry date in MM/YY format.");
-      return;
+        alert("Please enter a valid expiry date in MM/YY format.");
+        return;
     }
+
+    // Validate CVV
     if (!cvv || cvv.length !== 3 || !/^\d{3}$/.test(cvv)) {
-      alert("Please enter a valid 3-digit CVV.");
-      return;
+        alert("Please enter a valid 3-digit CVV.");
+        return;
     }
 
     try {

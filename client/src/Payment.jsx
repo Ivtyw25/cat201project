@@ -46,7 +46,7 @@ const Payment = () => {
         const selectedItemsSet = new Set(JSON.parse(selectedItemsStr));
 
         const cartResponse = await fetch(
-          `http://localhost:8080/cat201project/Cart?action=getCart&userId=${userData.user_id}`
+          `http://localhost:8080/cat201project_war/Cart?action=getCart&userId=${userData.user_id}`
         );
         const cartData = await cartResponse.json();
 
@@ -55,8 +55,10 @@ const Payment = () => {
           selectedItemsSet.has(item.card_id)
         );
 
+        // Prepare the filtered cart items to send to the serve
+
         const cardsResponse = await fetch(
-          "http://localhost:8080/cat201project/readCard"
+          "http://localhost:8080/cat201project_war/readCard"
         );
         const cardsData = await cardsResponse.json();
 
@@ -105,7 +107,7 @@ const Payment = () => {
 
         // Update user balance
         const response = await fetch(
-          "http://localhost:8080/cat201project/Wallet",
+          "http://localhost:8080/cat201project_war/Wallet",
           {
             method: "POST",
             headers: {
@@ -120,6 +122,8 @@ const Payment = () => {
         console.log("Response data:", result); // Debug log
 
         if (result.success) {
+
+
           // Update local storage with new balance
           const updatedUser = {
             ...userData,
@@ -128,23 +132,36 @@ const Payment = () => {
           localStorage.setItem("user", JSON.stringify(updatedUser));
 
           // Clear cart
-          await fetch("http://localhost:8080/cat201project/Cart", {
+          const clearCartResponse = await fetch("http://localhost:8080/cat201project_war/Cart", {
             method: "POST",
             headers: {
-              "Content-Type": "application/x-www-form-urlencoded",
+              "Content-Type": "application/json",
             },
-            body: `action=clearCart&userId=${userData.user_id}`,
+            body: JSON.stringify({
+              action: "clearCart",
+              userId: 2, // Ensure this is defined
+              items: cartItems.map(item => ({
+                card_id: item.card_id,
+                quantity: item.quantity,
+              })),
+            }),
           });
 
-          alert("Payment successful! Thank you for your purchase.");
-          navigate("/");
+          if (!clearCartResponse.ok) {
+            const errorMessage = await clearCartResponse.text();
+            console.error("Clear Cart Error:", errorMessage); // Debug log
+            alert("Failed to clear cart: " + errorMessage);
+            return;
+          }
+          
+
         } else {
           alert("Payment failed: " + (result.message || "Unknown error"));
         }
       } else {
         // Your existing credit/debit card payment logic
         const response = await fetch(
-          "http://localhost:8080/cat201project/Payment",
+          "http://localhost:8080/cat201project_war/Payment",
           {
             method: "POST",
             headers: {
@@ -157,12 +174,19 @@ const Payment = () => {
         const paymentData = await response.json();
 
         if (paymentData.success) {
-          await fetch("http://localhost:8080/cat201project/Cart", {
+          // Prepare the filtered cart items to send to the server
+          const filteredItems = JSON.stringify(filteredItems);
+
+          await fetch("http://localhost:8080/cat201project_war/Cart", {
             method: "POST",
             headers: {
-              "Content-Type": "application/x-www-form-urlencoded",
+              "Content-Type": "application/json", // Change to application/json
             },
-            body: `action=clearCart&userId=${userData.user_id}`,
+            body: JSON.stringify({
+              action: "clearCart",
+              userId: userData.user_id,
+              items: filteredItems, // Pass the filtered items
+            }),
           });
 
           alert("Payment successful! Thank you for your purchase.");
