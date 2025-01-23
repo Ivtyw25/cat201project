@@ -136,5 +136,57 @@ public class ReadWriteCart {
             return true;
         }
     }
-    public static boolean clearCart(int userId,List<Integer> selectedItems) {return  true;}
+    public static boolean clearCart(int userId,List<Integer> selectedItems) {
+        try {
+            // Read JSON data from the file
+            FileReader reader = new FileReader(CART_FILE_PATH);
+            JsonObject jsonObject = JsonParser.parseReader(reader).getAsJsonObject();
+            reader.close();
+
+            JsonArray cartArray = jsonObject.getAsJsonArray("cart");
+            System.out.println("Original JSON: " + jsonObject);
+
+            // Iterate through the cart to find the matching user_id
+            for (JsonElement cartElement : cartArray) {
+                JsonObject cartObject = cartElement.getAsJsonObject();
+                int currentUserId = cartObject.get("user_id").getAsInt();
+
+                // If the user ID matches, process their items
+                if (currentUserId == userId) {
+                    JsonArray itemsArray = cartObject.getAsJsonArray("items");
+                    System.out.println("Original items for user " + userId + ": " + itemsArray);
+
+                    // Filter out items with card_id in selectedItems
+                    JsonArray updatedItems = new JsonArray();
+                    for (JsonElement itemElement : itemsArray) {
+                        JsonObject itemObject = itemElement.getAsJsonObject();
+                        int cardId = itemObject.get("card_id").getAsInt();
+
+                        if (!selectedItems.contains(cardId)) {
+                            updatedItems.add(itemObject);
+                        } else {
+                            System.out.println("Removing card_id: " + cardId);
+                        }
+                    }
+
+                    // Update the cart object with the filtered items
+                    cartObject.add("items", updatedItems);
+                    System.out.println("Updated items for user " + userId + ": " + updatedItems);
+                }
+            }
+
+            // Write the updated JSON back to the file
+            FileWriter writer = new FileWriter(CART_FILE_PATH);
+            writer.write(new GsonBuilder().setPrettyPrinting().create().toJson(jsonObject));
+            writer.close();
+
+            System.out.println("Updated JSON saved to file.");
+            return true;
+
+        } catch (Exception e) {
+            System.out.println("Error clearing cart: " + e.getMessage());
+            e.printStackTrace();
+            return false;
+        }
+    }
 } 

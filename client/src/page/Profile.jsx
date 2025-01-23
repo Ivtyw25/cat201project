@@ -37,7 +37,7 @@ const Profile = () => {
     }
 
     // Validate expiry date
-    if (!expiryDate || !/^\d{2}\/\d{2}$/.test(expiryDate)) {
+    if (!expiryDate || !/^(0[1-9]|1[0-2])\/\d{2}$/.test(expiryDate)) {
         alert("Please enter a valid expiry date in MM/YY format.");
         return;
     }
