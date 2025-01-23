@@ -11,12 +11,7 @@
     },
     {
       "user_id": 2,
-      "items": [
-        {
-          "card_id": 4,
-          "quantity": 1
-        }
-      ]
+      "items": []
     },
     {
       "user_id": 3,

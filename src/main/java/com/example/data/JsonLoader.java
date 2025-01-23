@@ -149,5 +149,10 @@ public class JsonLoader {
         public String getCategory() {
             return category;
         }
+
+        // Add deductStock method
+        public void deductStock(int quantityToDeduct) {
+            this.stock = this.stock - quantityToDeduct;
+        }
     }
 }

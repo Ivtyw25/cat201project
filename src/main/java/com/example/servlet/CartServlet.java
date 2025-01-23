@@ -88,6 +88,16 @@ public class CartServlet extends HttpServlet {
 
                 success = ReadWriteCart.clearCart(userId, cardIds);
             }
+            else if ("addToCart".equals(action)) {
+                int cardId = Integer.parseInt(request.getParameter("cardId"));
+                int quantity = Integer.parseInt(request.getParameter("quantity"));
+                success = ReadWriteCart.addToCart(userId, cardId, quantity);
+            }
+            else if ("removeFromCart".equals(action)) {
+                int cardId = Integer.parseInt(request.getParameter("cardId"));
+                success = ReadWriteCart.removeFromCart(userId, cardId);
+                System.out.print("Hello here is remove from cart id is" + cardId + " succss? " + success);
+            }
         }
 
         // Send JSON response

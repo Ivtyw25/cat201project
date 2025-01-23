@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Nav from "./components/Nav";
 import { FaLock } from "react-icons/fa";
+import { Images } from "./assets/images";
+import { readCardEndpoint } from "./constants";
 
 
 const Payment = () => {
@@ -119,7 +121,6 @@ const Payment = () => {
           wallet: userData.wallet - totalAmount,
         };
         localStorage.setItem("user", JSON.stringify(updatedUser));
-
         // Clear cart
         const clearCartResponse = await fetch("http://localhost:8080/cat201project_war/Cart", {
           method: "POST",
@@ -132,6 +133,23 @@ const Payment = () => {
             items: JSON.stringify(cartItems), // URL-encode your cart items if necessary
           }),
         });
+        
+        const updateQuantityResponse = await fetch(readCardEndpoint, {
+          method: "POST",
+          headers: { 
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+          body: new URLSearchParams({
+            action: "deductQuantity",
+            items: JSON.stringify(cartItems)
+          })
+        });
+
+        if (!updateQuantityResponse.ok) {
+          console.error("Failed to update card quantities");
+        } else {
+          console.log("Stock deduct succesfully");
+        }
 
         if (!clearCartResponse.ok) {
           const errorMessage = await clearCartResponse.text();
@@ -183,7 +201,7 @@ const Payment = () => {
                       className="flex items-center space-x-4 p-4 bg-gray-50 rounded-lg"
                     >
                       <img
-                        src={card.image_url}
+                        src={Images[card.category]?.[card.image_url]}
                         alt={card.name}
                         className="w-16 h-16 object-cover rounded-md"
                       />

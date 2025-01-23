@@ -23,7 +23,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class ReadCard extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
-
+    private static final String absolutePath =  "C:\\Users\\houyu\\cat201project\\src\\main\\webapp\\data\\Card.json";
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -32,7 +32,6 @@ public class ReadCard extends HttpServlet {
         PrintWriter out = response.getWriter();
 
         // Load cards from the JSON file using absolute path
-        String absolutePath = "C:\\Users\\houyu\\cat201project\\src\\main\\webapp\\data\\Card.json";
         try (InputStream inputStream = new FileInputStream(absolutePath)) {
             if (inputStream == null) {
                 // Handle the case where the file is not found
@@ -82,6 +81,49 @@ public class ReadCard extends HttpServlet {
         PrintWriter out = response.getWriter();
 
         try {
+            String action = request.getParameter("action");
+            
+            if ("deductQuantity".equals(action)) {
+                System.out.println("Hello I am deduct quantity ");
+                // Handle quantity deduction
+                String itemsJson = request.getParameter("items");
+                ObjectMapper mapper = new ObjectMapper();
+                JsonNode items = mapper.readTree(itemsJson);
+                
+
+                List<JsonLoader.Card> allCards = JsonLoader.loadCardsFromJson(new FileInputStream(absolutePath));
+                
+                // Update quantities
+                boolean updatedAny = false;
+                for (JsonNode item : items) {
+                    int cardId = item.get("card_id").asInt();
+                    int quantityToDeduct = item.get("quantity").asInt();
+                    
+                    for (JsonLoader.Card card : allCards) {
+                        if (card.getCardId() == cardId) {
+                            int newStock = card.getStock() - quantityToDeduct;
+                            if (newStock < 0) {
+                                throw new IllegalStateException("Insufficient stock for card: " + cardId);
+                            }
+                            card.deductStock(quantityToDeduct);
+                            updatedAny = true;
+                            break;
+                        }
+                    }
+                }
+                
+                if (updatedAny) {
+                    // Save updated data back to file
+                    JsonLoader.saveCardsToJson(allCards, absolutePath);
+                    response.setStatus(HttpServletResponse.SC_OK);
+                    out.println("{\"message\": \"Stock updated successfully\"}");
+                } else {
+                    response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+                    out.println("{\"error\": \"No cards were updated\"}");
+                }
+                return;
+            }
+
             // Read the JSON input from request body
             BufferedReader reader = request.getReader();
             StringBuilder jsonInput = new StringBuilder();
@@ -128,7 +170,7 @@ public class ReadCard extends HttpServlet {
         } catch (Exception e) {
             e.printStackTrace();
             response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-            out.println("{\"error\": \"Failed to add card: " + e.getMessage() + "\"}");
+            out.println("{\"error\": \"Failed to process request: " + e.getMessage() + "\"}");
         }
     }
 
