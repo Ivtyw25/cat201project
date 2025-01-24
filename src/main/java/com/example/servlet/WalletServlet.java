@@ -3,49 +3,41 @@ package com.example.servlet;
 import java.io.*;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.*;
-import com.google.gson.*;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
 import java.util.Map;
 import java.util.LinkedHashMap;
 import java.util.HashMap;
 
 @WebServlet("/Wallet")
 public class WalletServlet extends HttpServlet {
-
-    private static final String USER_FILE_PATH = "C:/Users/USER/Documents/Y2_S1/CAT 201/cat201project/src/main/webapp/data/users.json";
+    private static final String USER_FILE_PATH = "C:\\Users\\houyu\\cat201project\\src\\main\\webapp\\data\\users.json";
     private final Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
     @Override
-    protected void doOptions(HttpServletRequest request, HttpServletResponse response) 
-            throws ServletException, IOException {
-        response.setHeader("Access-Control-Allow-Origin", "*");
-        response.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS");
-        response.setHeader("Access-Control-Allow-Headers", "Content-Type");
-        response.setStatus(HttpServletResponse.SC_OK);
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) 
             throws ServletException, IOException {
         
-        response.setHeader("Access-Control-Allow-Origin", "*"); // Allow all origins
         response.setContentType("application/json");
         PrintWriter out = response.getWriter();
-
+        
         try {
-            // Parse the entire JSON body from the request
-            JsonObject requestBody = gson.fromJson(request.getReader(), JsonObject.class);
-            String action = requestBody.get("action").getAsString();
-            int userId = requestBody.get("userId").getAsInt();
-            double amount = requestBody.get("amount").getAsDouble();
-            String operation = requestBody.get("operation").getAsString();
-
+            String action = request.getParameter("action");
             System.out.println("Action received: " + action); // Debug log
+
+            int userId = Integer.parseInt(request.getParameter("userId"));
             System.out.println("User ID: " + userId); // Debug log
-            System.out.println("Amount to deduct: " + amount); // Debug log
-            System.out.println("Operation: " + operation); // Debug log
             
             if ("updateWallet".equals(action)) {
+                double amount = Double.parseDouble(request.getParameter("amount"));
+                System.out.println("Amount to deduct: " + amount); // Debug log
+                
                 // Read current user data
                 Reader reader = new FileReader(USER_FILE_PATH);
                 JsonObject userJson = gson.fromJson(reader, JsonObject.class);
@@ -61,8 +53,6 @@ public class WalletServlet extends HttpServlet {
                     if (user.get("user_id").getAsInt() == userId) {
                         double currentWallet = user.get("wallet").getAsDouble();
                         System.out.println("Current wallet: " + currentWallet); // Debug log
-                        
-                        // Apply the operation (subtract amount)
                         user.addProperty("wallet", currentWallet - amount);
                         System.out.println("New wallet amount: " + (currentWallet - amount)); // Debug log
                         success = true;
@@ -106,6 +96,46 @@ public class WalletServlet extends HttpServlet {
             error.put("message", e.getMessage());
             out.print(gson.toJson(error));
         }
-    
+    }
+
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) 
+            throws ServletException, IOException {
+        
+        response.setContentType("application/json");
+        PrintWriter out = response.getWriter();
+        
+        try {
+            String action = request.getParameter("action");
+            int userId = Integer.parseInt(request.getParameter("userId"));
+            
+            if ("getBalance".equals(action)) {
+                // Read current user data
+                Reader reader = new FileReader(USER_FILE_PATH);
+                JsonObject userJson = gson.fromJson(reader, JsonObject.class);
+                reader.close();
+                
+                JsonArray users = userJson.getAsJsonArray("users");
+                double balance = 0;
+                
+                for (JsonElement element : users) {
+                    JsonObject user = element.getAsJsonObject();
+                    if (user.get("user_id").getAsInt() == userId) {
+                        balance = user.get("wallet").getAsDouble();
+                        break;
+                    }
+                }
+                
+                Map<String, Object> result = new HashMap<>();
+                result.put("success", true);
+                result.put("balance", balance);
+                out.print(gson.toJson(result));
+            }
+        } catch (Exception e) {
+            Map<String, Object> error = new HashMap<>();
+            error.put("success", false);
+            error.put("message", e.getMessage());
+            out.print(gson.toJson(error));
+        }
     }
 }

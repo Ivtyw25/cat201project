@@ -23,7 +23,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class ReadCard extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
-
+    private static final String absolutePath =  "C:\\Users\\houyu\\cat201project\\src\\main\\webapp\\data\\Card.json";
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -32,7 +32,6 @@ public class ReadCard extends HttpServlet {
         PrintWriter out = response.getWriter();
 
         // Load cards from the JSON file using absolute path
-        String absolutePath = "C:\\Users\\USER\\Documents\\Y2_S1\\CAT 201\\cat201project\\src\\main\\webapp\\data\\Card.json";
         try (InputStream inputStream = new FileInputStream(absolutePath)) {
             if (inputStream == null) {
                 // Handle the case where the file is not found
@@ -82,53 +81,100 @@ public class ReadCard extends HttpServlet {
         PrintWriter out = response.getWriter();
 
         try {
-            // Read the JSON input from request body
-            BufferedReader reader = request.getReader();
-            StringBuilder jsonInput = new StringBuilder();
-            String line;
-            while ((line = reader.readLine()) != null) {
-                jsonInput.append(line);
+            String action = request.getParameter("action");
+            
+            if ("deductQuantity".equals(action)) {
+                System.out.println("Hello I am deduct quantity ");
+                // Handle quantity deduction
+                String itemsJson = request.getParameter("items");
+                ObjectMapper mapper = new ObjectMapper();
+                JsonNode items = mapper.readTree(itemsJson);
+                
+
+                List<JsonLoader.Card> allCards = JsonLoader.loadCardsFromJson(new FileInputStream(absolutePath));
+                
+                // Update quantities
+                boolean updatedAny = false;
+                for (JsonNode item : items) {
+                    int cardId = item.get("card_id").asInt();
+                    int quantityToDeduct = item.get("quantity").asInt();
+                    
+                    for (JsonLoader.Card card : allCards) {
+                        if (card.getCardId() == cardId) {
+                            int newStock = card.getStock() - quantityToDeduct;
+                            if (newStock < 0) {
+                                throw new IllegalStateException("Insufficient stock for card: " + cardId);
+                            }
+                            card.deductStock(quantityToDeduct);
+                            updatedAny = true;
+                            break;
+                        }
+                    }
+                }
+                
+                if (updatedAny) {
+                    // Save updated data back to file
+                    JsonLoader.saveCardsToJson(allCards, absolutePath);
+                    response.setStatus(HttpServletResponse.SC_OK);
+                    out.println("{\"message\": \"Stock updated successfully\"}");
+                } else {
+                    response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+                    out.println("{\"error\": \"No cards were updated\"}");
+                }
+                return;
+            } else if ("addCard".equals(action)) {
+                System.out.println("Action: addCard triggered");
+                // Read the JSON input from request body
+                BufferedReader reader = request.getReader();
+                StringBuilder jsonInput = new StringBuilder();
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    jsonInput.append(line);
+                }
+
+                // Parse the input JSON
+                ObjectMapper mapper = new ObjectMapper();
+                JsonNode cardData = mapper.readTree(jsonInput.toString());
+
+                // Read existing cards
+                File jsonFile = new File(absolutePath);
+                List<JsonLoader.Card> cards = JsonLoader.loadCardsFromJson(new FileInputStream(jsonFile));
+
+                // Generate new card ID (max existing ID + 1)
+                int newCardId = cards.stream()
+                        .mapToInt(JsonLoader.Card::getCardId)
+                        .max()
+                        .orElse(0) + 1;
+
+                // Create new card
+                JsonLoader.Card newCard = new JsonLoader.Card(
+                        newCardId,
+                        cardData.get("name").asText(),
+                        cardData.get("description").asText(),
+                        cardData.get("price").asDouble(),
+                        cardData.get("stock").asInt(),
+                        cardData.get("rarity").asText(),
+                        cardData.get("image_url").asText(),
+                        cardData.get("category").asText());
+
+                // Add new card to list
+                cards.add(newCard);
+
+                // Save updated list
+                JsonLoader.saveCardsToJson(cards, absolutePath);
+
+                response.setContentType("application/json");
+                response.setCharacterEncoding("UTF-8");
+
+// Success case
+                response.setStatus(HttpServletResponse.SC_OK);
+                out.println("{\"message\": \"Card added successfully\", \"id\": " + newCardId + "}");
             }
-
-            // Parse the input JSON
-            ObjectMapper mapper = new ObjectMapper();
-            JsonNode cardData = mapper.readTree(jsonInput.toString());
-
-            // Read existing cards
-            String absolutePath = "C:\\Users\\junki\\cat201project\\src\\main\\webapp\\data\\Card.json";
-            File jsonFile = new File(absolutePath);
-            List<JsonLoader.Card> cards = JsonLoader.loadCardsFromJson(new FileInputStream(jsonFile));
-
-            // Generate new card ID (max existing ID + 1)
-            int newCardId = cards.stream()
-                    .mapToInt(JsonLoader.Card::getCardId)
-                    .max()
-                    .orElse(0) + 1;
-
-            // Create new card
-            JsonLoader.Card newCard = new JsonLoader.Card(
-                    newCardId,
-                    cardData.get("name").asText(),
-                    cardData.get("description").asText(),
-                    cardData.get("price").asDouble(),
-                    cardData.get("stock").asInt(),
-                    cardData.get("rarity").asText(),
-                    cardData.get("image_url").asText(),
-                    cardData.get("category").asText());
-
-            // Add new card to list
-            cards.add(newCard);
-
-            // Save updated list
-            JsonLoader.saveCardsToJson(cards, absolutePath);
-
-            response.setStatus(HttpServletResponse.SC_OK);
-            out.println("{\"message\": \"Card added successfully\", \"id\": " + newCardId + "}");
 
         } catch (Exception e) {
             e.printStackTrace();
             response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-            out.println("{\"error\": \"Failed to add card: " + e.getMessage() + "\"}");
+            out.println("{\"error\": \"Failed to process request: " + e.getMessage() + "\"}");
         }
     }
 

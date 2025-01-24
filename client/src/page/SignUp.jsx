@@ -35,6 +35,37 @@ const SignUp = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // Sign-Up Validation
+    if (!userDetails.username || !userDetails.full_name || !userDetails.email || !userDetails.password || !userDetails.phone) {
+      alert("Please fill in all required fields.");
+      return;
+    }
+
+    // Email validation
+    if (!/^[a-zA-Z0-9._%+-]+@gmail\.com$/.test(userDetails.email)) {
+        alert("Please enter a valid Gmail address (must end with @gmail.com).");
+        return;
+    }
+
+    // Password validation
+    if (userDetails.password.length < 6 || 
+        !/(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])/.test(userDetails.password)) {
+        alert("Password must be at least 6 characters long and include at least one uppercase letter, one lowercase letter, one number, and one special character.");
+        return;
+    }
+
+    // ZIP Code validation
+    if (!/^\d{5}$/.test(addressDetails.zip)) {
+        alert("ZIP code must be exactly 5 numeric digits.");
+        return;
+    }
+
+    // Phone Number validation
+    if (!/^\d{3}-\d{7}$|^\d{3}-\d{8}$/.test(userDetails.phone)) {
+        alert("Phone number must be in 10/11 digits (format XXX-XXXXXXX or XXX-XXXXXXXX).");
+        return;
+    }
+
     const formData = new URLSearchParams();
     // Add the action parameter
     formData.append("action", "signup");
@@ -56,7 +87,7 @@ const SignUp = () => {
 
     try {
       const response = await fetch(
-        "http://localhost:8080/cat201project/Login",
+        "http://localhost:8080/cat201project_war/Login",
         {
           method: "POST",
           headers: {

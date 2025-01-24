@@ -1,0 +1,76 @@
+{
+  "orders": [
+    {
+      "order_id": "7f2be3f4-2559-42af-bd1b-4964e11b95b8",
+      "user_id": 11,
+      "total_sales": 89.47,
+      "status": "Shipped",
+      "items": [
+        {
+          "card_id": 20,
+          "quantity": 1
+        },
+        {
+          "card_id": 40,
+          "quantity": 1
+        },
+        {
+          "card_id": 42,
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "order_id": "6e7aed72-bcc8-4407-873f-52aa18d5845b",
+      "user_id": 5,
+      "total_sales": 38.48,
+      "status": "Shipped",
+      "items": [
+        {
+          "card_id": 31,
+          "quantity": 1
+        },
+        {
+          "card_id": 33,
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "order_id": "e5297c1c-13c3-472c-940e-67be0c6b0ce9",
+      "user_id": 2,
+      "total_sales": 129.95,
+      "status": "Shipped",
+      "items": [
+        {
+          "card_id": 26,
+          "quantity": 5
+        }
+      ]
+    },
+    {
+      "order_id": "786479bb-7341-429b-986e-fe00da8871e9",
+      "user_id": 2,
+      "total_sales": 28.99,
+      "status": "Shipped",
+      "items": [
+        {
+          "card_id": 27,
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "order_id": "78907c15-a35e-4da6-aba9-c8c234e23f41",
+      "user_id": 2,
+      "total_sales": 129.95,
+      "status": "Shipped",
+      "items": [
+        {
+          "card_id": 36,
+          "quantity": 5
+        }
+      ]
+    }
+  ]
+}

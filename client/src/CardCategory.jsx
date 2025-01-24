@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Nav from "./components/Nav";
 import SideNav from "./components/SideNav";
-import { readCardEndpoint } from "./constants";
+import { readCardEndpoint, readCartEndpoint } from "./constants";
 import { Images } from "./assets/images";
 import Footer from "./sections/Footer";
 import ItemCard from "./components/ItemCard";
@@ -58,7 +58,7 @@ const CardCategory = ({ category }) => {
 
     try {
 
-      const response = await fetch("http://localhost:8080/cat201project/Cart", {
+      const response = await fetch(readCartEndpoint, {
         method: "POST",
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",

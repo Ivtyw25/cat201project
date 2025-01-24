@@ -54,6 +54,7 @@ import TsunadeNr from "./tsunade_nr.jpg"
 import UchihcaMadaraNr from "./uchiha_madara_nr.jpg"
 import UchihaObitoBp from "./uchiha_obito_bp.jpg"
 import Yamato from "./yamato.jpg"
+import Default from "./default.jpg"
 
 // Group exports by category
 export const Images = {
@@ -79,7 +80,8 @@ export const Images = {
     PikachuEx,
     Pyroar,
     Slowking,
-    Suicune
+    Suicune,
+    Default
   },
 
   // Attack on Titan characters
@@ -93,7 +95,8 @@ export const Images = {
     Eren,
     FemaleTitan,
     Levi,
-    Mikasa
+    Mikasa,
+    Default
   },
 
   // My Hero Academia characters
@@ -107,7 +110,8 @@ export const Images = {
     Kirishima,
     KuokaJiro,
     Shigaraki,
-    Todoroki
+    Todoroki,
+    Default
   },
 
   // One Piece characters
@@ -120,7 +124,8 @@ export const Images = {
     Shanks,
     TonyChopper,
     TrafalgarLaw,
-    Yamato
+    Yamato,
+    Default
   },
 
   // Naruto characters
@@ -134,6 +139,7 @@ export const Images = {
     SasukeUchihaCr,
     TsunadeNr,
     UchihcaMadaraNr,
-    UchihaObitoBp
+    UchihaObitoBp,
+    Default
   }
 }
