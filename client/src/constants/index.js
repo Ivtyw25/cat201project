@@ -8,6 +8,7 @@ export const navLinks = [
 export const readCardEndpoint = 'http://localhost:8080/cat201project_war/readCard'
 export const readUserEndpoint = 'http://localhost:8080/cat201project_war/Login'
 export const readCartEndpoint = 'http://localhost:8080/cat201project_war/Cart'
+export const readOrderEndpoint = 'http://localhost:8080/cat201project_war/order'
 
 export const navButtons = [
     {

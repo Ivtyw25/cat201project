@@ -6,7 +6,7 @@
       "name" : "Katsuki Bakugo",
       "description" : "A character from the anime series My Hero Academic.",
       "price" : 25.99,
-      "stock" : 4,
+      "stock" : 2,
       "rarity" : "Epic",
       "image_url" : "KatsukiBakugo",
       "category" : "My Hero Academia"
@@ -15,7 +15,7 @@
       "name" : "Izuku Midoriya",
       "description" : "The main protagonist, also known as Deku.",
       "price" : 25.99,
-      "stock" : 4,
+      "stock" : 3,
       "rarity" : "Epic",
       "image_url" : "IzukuMidoriya",
       "category" : "My Hero Academia"
@@ -24,7 +24,7 @@
       "name" : "All Might",
       "description" : "The former number one hero.",
       "price" : 35.99,
-      "stock" : 2,
+      "stock" : 0,
       "rarity" : "Legendary",
       "image_url" : "AllMight",
       "category" : "My Hero Academia"
@@ -51,7 +51,7 @@
       "name" : "All For One",
       "description" : "A character from the anime series My Hero Academic.",
       "price" : 25.99,
-      "stock" : 4,
+      "stock" : 3,
       "rarity" : "Epic",
       "image_url" : "AllForOne",
       "category" : "My Hero Academia"
@@ -60,7 +60,7 @@
       "name" : "Frog",
       "description" : "A character from the anime series My Hero Academic.",
       "price" : 50.99,
-      "stock" : 1,
+      "stock" : 5,
       "rarity" : "Legendary",
       "image_url" : "Frog",
       "category" : "My Hero Academia"
@@ -69,7 +69,7 @@
       "name" : "Shigaraki",
       "description" : "The main antagonist of the series.",
       "price" : 32.99,
-      "stock" : 2,
+      "stock" : 0,
       "rarity" : "Legendary",
       "image_url" : "Shigaraki",
       "category" : "My Hero Academia"
@@ -87,7 +87,7 @@
       "name" : "Kuoka Jiro",
       "description" : "The main antagonist of the series.",
       "price" : 32.99,
-      "stock" : 2,
+      "stock" : 1,
       "rarity" : "Legendary",
       "image_url" : "KuokaJiro",
       "category" : "My Hero Academia"
@@ -126,7 +126,7 @@
       "name" : "Armored Titan",
       "description" : "One of the nine titan shifters.",
       "price" : 32.99,
-      "stock" : 3,
+      "stock" : 2,
       "rarity" : "Legendary",
       "image_url" : "ArmoredTitan",
       "category" : "Attack on Titan"
@@ -135,7 +135,7 @@
       "name" : "Levi",
       "description" : "Humanity's strongest soldier.",
       "price" : 35.99,
-      "stock" : 2,
+      "stock" : 7,
       "rarity" : "Legendary",
       "image_url" : "Levi",
       "category" : "Attack on Titan"
@@ -192,7 +192,7 @@
       "name" : "Naruto Uzumaki",
       "description" : "The main protagonist of the series.",
       "price" : 25.99,
-      "stock" : 4,
+      "stock" : 0,
       "rarity" : "Epic",
       "image_url" : "NarutoUzumakiCr",
       "category" : "Naruto"
@@ -201,7 +201,7 @@
       "name" : "Sasuke Uchiha",
       "description" : "Naruto's rival and friend.",
       "price" : 28.99,
-      "stock" : 3,
+      "stock" : 2,
       "rarity" : "Epic",
       "image_url" : "SasukeUchihaCr",
       "category" : "Naruto"
@@ -210,7 +210,7 @@
       "name" : "Sakura Haruno",
       "description" : "A skilled medical ninja.",
       "price" : 22.99,
-      "stock" : 5,
+      "stock" : 3,
       "rarity" : "Rare",
       "image_url" : "HarunoSakuraCr",
       "category" : "Naruto"
@@ -237,7 +237,7 @@
       "name" : "Kushina Uzumaki NR",
       "description" : "A character from the anime series Naruto.",
       "price" : 25.99,
-      "stock" : 4,
+      "stock" : 2,
       "rarity" : "Epic",
       "image_url" : "KushinaUzumakiNr",
       "category" : "Naruto"
@@ -255,7 +255,7 @@
       "name" : "Tsunade NR",
       "description" : "A character from the anime series Naruto.",
       "price" : 12.49,
-      "stock" : 8,
+      "stock" : 5,
       "rarity" : "Common",
       "image_url" : "TsunadeNr",
       "category" : "Naruto"
@@ -264,7 +264,7 @@
       "name" : "Uchiha Obito BP",
       "description" : "A character from the anime series Naruto.",
       "price" : 40.99,
-      "stock" : 1,
+      "stock" : 5,
       "rarity" : "Legendary",
       "image_url" : "UchihaObitoBp",
       "category" : "Naruto"
@@ -276,7 +276,7 @@
       "name" : "Applin",
       "description" : "A small, round, green apple-like Pokémon.",
       "price" : 15.99,
-      "stock" : 8,
+      "stock" : 28,
       "rarity" : "Rare",
       "image_url" : "Applin",
       "category" : "Pokemon"
@@ -285,7 +285,7 @@
       "name" : "Hydrapple",
       "description" : "A Pokémon that resembles a green apple with a leaf on its head.",
       "price" : 20.49,
-      "stock" : 5,
+      "stock" : 3,
       "rarity" : "Epic",
       "image_url" : "Hydrapple",
       "category" : "Pokemon"
@@ -321,7 +321,7 @@
       "name" : "Litleo",
       "description" : "A Pokémon that resembles a lion cub.",
       "price" : 15.99,
-      "stock" : 8,
+      "stock" : 7,
       "rarity" : "Rare",
       "image_url" : "Litleo",
       "category" : "Pokemon"
@@ -330,7 +330,7 @@
       "name" : "Slowking",
       "description" : "A Pokémon that resembles a pink, bipedal hippopotamus.",
       "price" : 20.49,
-      "stock" : 5,
+      "stock" : 1,
       "rarity" : "Epic",
       "image_url" : "Slowking",
       "category" : "Pokemon"
@@ -357,7 +357,7 @@
       "name" : "Claceon",
       "description" : "A Pokémon that resembles a cat with a large, curled tail.",
       "price" : 10.99,
-      "stock" : 10,
+      "stock" : 9,
       "rarity" : "Uncommon",
       "image_url" : "Claceon",
       "category" : "Pokemon"
@@ -393,7 +393,7 @@
       "name" : "Iron Thorns EX",
       "description" : "A powerful Iron Thorns EX Pokemon card.",
       "price" : 30.99,
-      "stock" : 2,
+      "stock" : 12,
       "rarity" : "Legendary",
       "image_url" : "IronThornsEx",
       "category" : "Pokemon"
@@ -414,7 +414,7 @@
       "name" : "Monkey D. Luffy",
       "description" : "Captain of the Straw Hat Pirates.",
       "price" : 25.99,
-      "stock" : 3,
+      "stock" : 12,
       "rarity" : "Epic",
       "image_url" : "MonekyDLuffy",
       "category" : "One Piece"
@@ -423,7 +423,7 @@
       "name" : "Roronoa Zoro",
       "description" : "The swordsman of the Straw Hat Pirates.",
       "price" : 28.99,
-      "stock" : 2,
+      "stock" : 22,
       "rarity" : "Epic",
       "image_url" : "RoronoaZoro",
       "category" : "One Piece"
@@ -432,7 +432,7 @@
       "name" : "Trafalgar Law",
       "description" : "Captain of the Heart Pirates.",
       "price" : 30.99,
-      "stock" : 0,
+      "stock" : 20,
       "rarity" : "Epic",
       "image_url" : "TrafalgarLaw",
       "category" : "One Piece"
@@ -441,7 +441,7 @@
       "name" : "Shanks",
       "description" : "One of the Four Emperors.",
       "price" : 35.99,
-      "stock" : 1,
+      "stock" : 31,
       "rarity" : "Legendary",
       "image_url" : "Shanks",
       "category" : "One Piece"
@@ -450,7 +450,7 @@
       "name" : "Tony Chopper",
       "description" : "A character from the anime series One Piece.",
       "price" : 40.99,
-      "stock" : 1,
+      "stock" : 40,
       "rarity" : "Legendary",
       "image_url" : "TonyChopper",
       "category" : "One Piece"
@@ -459,7 +459,7 @@
       "name" : "Shanks",
       "description" : "A character from the anime series One Piece.",
       "price" : 25.99,
-      "stock" : 4,
+      "stock" : 13,
       "rarity" : "Epic",
       "image_url" : "Shanks",
       "category" : "One Piece"
@@ -468,7 +468,7 @@
       "name" : "Yamato",
       "description" : "A character from the anime series One Piece.",
       "price" : 12.49,
-      "stock" : 8,
+      "stock" : 47,
       "rarity" : "Common",
       "image_url" : "Yamato",
       "category" : "One Piece"
@@ -477,7 +477,7 @@
       "name" : "Boa Hancock",
       "description" : "A character from the anime series One Piece.",
       "price" : 18.99,
-      "stock" : 5,
+      "stock" : 24,
       "rarity" : "Rare",
       "image_url" : "BoaHancock",
       "category" : "One Piece"

@@ -7,10 +7,8 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.google.gson.reflect.TypeToken;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.Reader;
+
+import java.io.*;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
@@ -27,36 +25,68 @@ public class ReadWriteCart {
             JsonArray cartArray = root.getAsJsonArray("cart");
 
             // Find user's cart
-            boolean found = false;
+            boolean userFound = false;
             for (JsonElement element : cartArray) {
                 JsonObject cartObj = element.getAsJsonObject();
                 if (cartObj.get("user_id").getAsInt() == userId) {
-                    // Found user's cart, add item
+                    // Found user's cart
                     JsonArray items = cartObj.getAsJsonArray("items");
-                    JsonObject newItem = new JsonObject();
-                    newItem.addProperty("card_id", cardId);
-                    newItem.addProperty("quantity", quantity);
-                    items.add(newItem);
-                    found = true;
+
+                    boolean cardFound = false;
+                    for (JsonElement itemElement : items) {
+                        JsonObject item = itemElement.getAsJsonObject();
+                        if (item.get("card_id").getAsInt() == cardId) {
+                            // Card exists, update quantity
+                            int existingQuantity = item.get("quantity").getAsInt();
+                            item.addProperty("quantity", existingQuantity + quantity);
+                            cardFound = true;
+                            break;
+                        }
+                    }
+
+                    // If card doesn't exist, add it as a new item
+                    if (!cardFound) {
+                        JsonObject newItem = new JsonObject();
+                        newItem.addProperty("card_id", cardId);
+                        newItem.addProperty("quantity", quantity);
+                        items.add(newItem);
+                    }
+
+                    userFound = true;
                     break;
                 }
             }
 
-            if (!found) {
-                System.out.println("User cart not found for ID: " + userId);
-                return false;
+            // If user's cart doesn't exist, create a new cart entry for the user
+            if (!userFound) {
+                JsonObject newCart = new JsonObject();
+                newCart.addProperty("user_id", userId);
+                JsonArray newItems = new JsonArray();
+
+                JsonObject newItem = new JsonObject();
+                newItem.addProperty("card_id", cardId);
+                newItem.addProperty("quantity", quantity);
+                newItems.add(newItem);
+
+                newCart.add("items", newItems);
+                cartArray.add(newCart);
             }
 
-            // Save updated cart
-            try (FileWriter writer = new FileWriter(CART_FILE_PATH)) {
-                gson.toJson(root, writer);
-                return true;
-            }
+            // Write updated cart data back to file
+            writeCartFile(root);
+            return true;
 
         } catch (Exception e) {
             System.out.println("Error adding to cart: " + e.getMessage());
             e.printStackTrace();
             return false;
+        }
+    }
+
+    private static void writeCartFile(JsonObject root) throws IOException {
+        try (Writer writer = new FileWriter(CART_FILE_PATH)) {
+            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+            gson.toJson(root, writer);
         }
     }
 

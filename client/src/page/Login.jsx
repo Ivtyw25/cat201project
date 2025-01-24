@@ -75,8 +75,11 @@ const Login = () => {
         // Verify the data was stored correctly
         const storedData = localStorage.getItem("user");
         console.log("Stored user data:", JSON.parse(storedData));
-
-        navigate("/");
+        if (userData.role === "admin"){
+          navigate("/adminpage")
+        } else {
+          navigate("/")
+        }
       } else {
         alert("Invalid email or password");
       }

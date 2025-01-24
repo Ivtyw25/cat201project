@@ -2,12 +2,7 @@
   "cart": [
     {
       "user_id": 1,
-      "items": [
-        {
-          "card_id": 51,
-          "quantity": 1
-        }
-      ]
+      "items": []
     },
     {
       "user_id": 2,
@@ -17,12 +12,8 @@
       "user_id": 3,
       "items": [
         {
-          "card_id": 16,
-          "quantity": 4
-        },
-        {
-          "card_id": 12,
-          "quantity": 8
+          "card_id": 49,
+          "quantity": 1
         }
       ]
     },
@@ -32,16 +23,33 @@
     },
     {
       "user_id": 5,
-      "items": [
-        {
-          "card_id": 2,
-          "quantity": 1
-        }
-      ]
+      "items": []
     },
     {
       "user_id": 6,
       "items": []
+    },
+    {
+      "user_id": 7,
+      "items": [
+        {
+          "card_id": 11,
+          "quantity": 2
+        }
+      ]
+    },
+    {
+      "user_id": 11,
+      "items": [
+        {
+          "card_id": 5,
+          "quantity": 2
+        },
+        {
+          "card_id": 8,
+          "quantity": 3
+        }
+      ]
     }
   ]
 }

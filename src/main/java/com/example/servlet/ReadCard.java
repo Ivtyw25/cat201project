@@ -122,50 +122,54 @@ public class ReadCard extends HttpServlet {
                     out.println("{\"error\": \"No cards were updated\"}");
                 }
                 return;
+            } else if ("addCard".equals(action)) {
+                System.out.println("Action: addCard triggered");
+                // Read the JSON input from request body
+                BufferedReader reader = request.getReader();
+                StringBuilder jsonInput = new StringBuilder();
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    jsonInput.append(line);
+                }
+
+                // Parse the input JSON
+                ObjectMapper mapper = new ObjectMapper();
+                JsonNode cardData = mapper.readTree(jsonInput.toString());
+
+                // Read existing cards
+                File jsonFile = new File(absolutePath);
+                List<JsonLoader.Card> cards = JsonLoader.loadCardsFromJson(new FileInputStream(jsonFile));
+
+                // Generate new card ID (max existing ID + 1)
+                int newCardId = cards.stream()
+                        .mapToInt(JsonLoader.Card::getCardId)
+                        .max()
+                        .orElse(0) + 1;
+
+                // Create new card
+                JsonLoader.Card newCard = new JsonLoader.Card(
+                        newCardId,
+                        cardData.get("name").asText(),
+                        cardData.get("description").asText(),
+                        cardData.get("price").asDouble(),
+                        cardData.get("stock").asInt(),
+                        cardData.get("rarity").asText(),
+                        cardData.get("image_url").asText(),
+                        cardData.get("category").asText());
+
+                // Add new card to list
+                cards.add(newCard);
+
+                // Save updated list
+                JsonLoader.saveCardsToJson(cards, absolutePath);
+
+                response.setContentType("application/json");
+                response.setCharacterEncoding("UTF-8");
+
+// Success case
+                response.setStatus(HttpServletResponse.SC_OK);
+                out.println("{\"message\": \"Card added successfully\", \"id\": " + newCardId + "}");
             }
-
-            // Read the JSON input from request body
-            BufferedReader reader = request.getReader();
-            StringBuilder jsonInput = new StringBuilder();
-            String line;
-            while ((line = reader.readLine()) != null) {
-                jsonInput.append(line);
-            }
-
-            // Parse the input JSON
-            ObjectMapper mapper = new ObjectMapper();
-            JsonNode cardData = mapper.readTree(jsonInput.toString());
-
-            // Read existing cards
-            String absolutePath = "C:\\Users\\junki\\cat201project\\src\\main\\webapp\\data\\Card.json";
-            File jsonFile = new File(absolutePath);
-            List<JsonLoader.Card> cards = JsonLoader.loadCardsFromJson(new FileInputStream(jsonFile));
-
-            // Generate new card ID (max existing ID + 1)
-            int newCardId = cards.stream()
-                    .mapToInt(JsonLoader.Card::getCardId)
-                    .max()
-                    .orElse(0) + 1;
-
-            // Create new card
-            JsonLoader.Card newCard = new JsonLoader.Card(
-                    newCardId,
-                    cardData.get("name").asText(),
-                    cardData.get("description").asText(),
-                    cardData.get("price").asDouble(),
-                    cardData.get("stock").asInt(),
-                    cardData.get("rarity").asText(),
-                    cardData.get("image_url").asText(),
-                    cardData.get("category").asText());
-
-            // Add new card to list
-            cards.add(newCard);
-
-            // Save updated list
-            JsonLoader.saveCardsToJson(cards, absolutePath);
-
-            response.setStatus(HttpServletResponse.SC_OK);
-            out.println("{\"message\": \"Card added successfully\", \"id\": " + newCardId + "}");
 
         } catch (Exception e) {
             e.printStackTrace();

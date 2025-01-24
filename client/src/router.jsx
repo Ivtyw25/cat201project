@@ -6,6 +6,7 @@ import SignUp from "./page/SignUp";
 import Cart from "./Cart";
 import Payment from "./Payment"; // Add this import
 import Profile from "./page/Profile";
+import Admin from "./page/admin";
 
 export const router = createBrowserRouter([
     {path: "/", element: <App/>},
@@ -19,4 +20,5 @@ export const router = createBrowserRouter([
     {path: "/pokemon", element: <CardCategory category="Pokemon"/>}, 
     {path: "/myheroacademia", element: <CardCategory category="My Hero Academia"/>},
     {path: "/profile", element: <Profile/>},
+    {path: "/adminpage", element: <Admin/>}
 ]);

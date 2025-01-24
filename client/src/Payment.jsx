@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Nav from "./components/Nav";
 import { FaLock } from "react-icons/fa";
 import { Images } from "./assets/images";
-import { readCardEndpoint } from "./constants";
+import { readCardEndpoint, readOrderEndpoint } from "./constants";
 
 
 const Payment = () => {
@@ -144,6 +144,25 @@ const Payment = () => {
             items: JSON.stringify(cartItems)
           })
         });
+
+        const updateOrderResponse = await fetch(readOrderEndpoint, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+          body: new URLSearchParams({
+            items: JSON.stringify(cartItems),
+            userId: user.user_id,
+            action: "addOrder"
+          })
+        })
+
+        if (!updateOrderResponse.ok) {
+          console.error("Error submitting order to admin");
+        } else {
+          console.log("Succesfully submit the order ot admin");
+        }
+
 
         if (!updateQuantityResponse.ok) {
           console.error("Failed to update card quantities");
